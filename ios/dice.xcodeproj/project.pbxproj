@@ -12,10 +12,10 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		26FB30EC3E013E4D45C80AC3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
-		3FB99463C8E944F789122873 /* libPods-dice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 462F689E07C55DFA87EA319F /* libPods-dice.a */; };
 		5840A8B5C2E34AE8AE24F830 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0B89A046621944409C0D0421 /* Pretendard-Medium.otf */; };
+		62C4EAC9CED21770F8697853 /* libPods-dice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B951984B62108DF41B6ABA9 /* libPods-dice.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		D9B057790FD938FCAE1A8C7F /* libPods-dice-diceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E135BBD30C38789694FDC923 /* libPods-dice-diceTests.a */; };
+		C0624832402702B62F1FA3CF /* libPods-dice-diceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B506F0F6A32B64DAAE10D147 /* libPods-dice-diceTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,8 +32,8 @@
 		00E356EE1AD99517003FC87E /* diceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = diceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* diceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = diceTests.m; sourceTree = "<group>"; };
-		0B89A046621944409C0D0421 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-Medium.otf"; path = "../src/assets/fonts/Pretendard-Medium.otf"; sourceTree = "<group>"; };
-		0CB9ADDDAFE11CEBE2EA47EF /* Pods-dice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dice.release.xcconfig"; path = "Target Support Files/Pods-dice/Pods-dice.release.xcconfig"; sourceTree = "<group>"; };
+		0B89A046621944409C0D0421 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-Medium.otf"; path = "../src/assets/fonts/Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		0FDBF13BE5753A0F49BD58BC /* Pods-dice-diceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dice-diceTests.release.xcconfig"; path = "Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* dice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = dice/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = dice/AppDelegate.mm; sourceTree = "<group>"; };
@@ -41,12 +41,12 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = dice/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = dice/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = dice/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		13E5C4FAB7126D24A2D8517A /* Pods-dice-diceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dice-diceTests.release.xcconfig"; path = "Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests.release.xcconfig"; sourceTree = "<group>"; };
-		19328C36FA3CE233548FA432 /* Pods-dice-diceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dice-diceTests.debug.xcconfig"; path = "Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests.debug.xcconfig"; sourceTree = "<group>"; };
-		462F689E07C55DFA87EA319F /* libPods-dice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dice.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16F00DD6490384336CC98A57 /* Pods-dice-diceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dice-diceTests.debug.xcconfig"; path = "Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		540A3CA3971D12F86728282B /* Pods-dice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dice.release.xcconfig"; path = "Target Support Files/Pods-dice/Pods-dice.release.xcconfig"; sourceTree = "<group>"; };
+		6B951984B62108DF41B6ABA9 /* libPods-dice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dice.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = dice/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CFDA40481AD4EB4D8316B5EA /* Pods-dice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dice.debug.xcconfig"; path = "Target Support Files/Pods-dice/Pods-dice.debug.xcconfig"; sourceTree = "<group>"; };
-		E135BBD30C38789694FDC923 /* libPods-dice-diceTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dice-diceTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B506F0F6A32B64DAAE10D147 /* libPods-dice-diceTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dice-diceTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFC6A34DFBA5CED694095D14 /* Pods-dice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dice.debug.xcconfig"; path = "Target Support Files/Pods-dice/Pods-dice.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -55,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9B057790FD938FCAE1A8C7F /* libPods-dice-diceTests.a in Frameworks */,
+				C0624832402702B62F1FA3CF /* libPods-dice-diceTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FB99463C8E944F789122873 /* libPods-dice.a in Frameworks */,
+				62C4EAC9CED21770F8697853 /* libPods-dice.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,8 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				462F689E07C55DFA87EA319F /* libPods-dice.a */,
-				E135BBD30C38789694FDC923 /* libPods-dice-diceTests.a */,
+				6B951984B62108DF41B6ABA9 /* libPods-dice.a */,
+				B506F0F6A32B64DAAE10D147 /* libPods-dice-diceTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -146,10 +146,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CFDA40481AD4EB4D8316B5EA /* Pods-dice.debug.xcconfig */,
-				0CB9ADDDAFE11CEBE2EA47EF /* Pods-dice.release.xcconfig */,
-				19328C36FA3CE233548FA432 /* Pods-dice-diceTests.debug.xcconfig */,
-				13E5C4FAB7126D24A2D8517A /* Pods-dice-diceTests.release.xcconfig */,
+				BFC6A34DFBA5CED694095D14 /* Pods-dice.debug.xcconfig */,
+				540A3CA3971D12F86728282B /* Pods-dice.release.xcconfig */,
+				16F00DD6490384336CC98A57 /* Pods-dice-diceTests.debug.xcconfig */,
+				0FDBF13BE5753A0F49BD58BC /* Pods-dice-diceTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -160,7 +160,6 @@
 				0B89A046621944409C0D0421 /* Pretendard-Medium.otf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,12 +169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "diceTests" */;
 			buildPhases = (
-				D58BF0FD1EC79ED0D4839501 /* [CP] Check Pods Manifest.lock */,
+				100656E4D73BF089466326D0 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				4557CA40142DC7048F362FDB /* [CP] Embed Pods Frameworks */,
-				01E55F78CB5BAA9B5B2A91DF /* [CP] Copy Pods Resources */,
+				69B1B5D03169620732FD4F28 /* [CP] Embed Pods Frameworks */,
+				62CA8F1DB8507DA41C4062C0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,13 +190,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "dice" */;
 			buildPhases = (
-				827CEC010C2C263CC1A0A955 /* [CP] Check Pods Manifest.lock */,
+				3612E8764B884F86D4DE63E2 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				4A5F3313D6C26B17115BD133 /* [CP] Embed Pods Frameworks */,
-				E128FC7F2E78AF20493D2108 /* [CP] Copy Pods Resources */,
+				82C796F2141420CD7A3D5B57 /* [CP] Embed Pods Frameworks */,
+				DB493D63CA7C291AC9614494 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -282,80 +281,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		01E55F78CB5BAA9B5B2A91DF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4557CA40142DC7048F362FDB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4A5F3313D6C26B17115BD133 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-dice/Pods-dice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-dice/Pods-dice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dice/Pods-dice-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		827CEC010C2C263CC1A0A955 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dice-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D58BF0FD1EC79ED0D4839501 /* [CP] Check Pods Manifest.lock */ = {
+		100656E4D73BF089466326D0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -377,7 +303,80 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E128FC7F2E78AF20493D2108 /* [CP] Copy Pods Resources */ = {
+		3612E8764B884F86D4DE63E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62CA8F1DB8507DA41C4062C0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69B1B5D03169620732FD4F28 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dice-diceTests/Pods-dice-diceTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82C796F2141420CD7A3D5B57 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dice/Pods-dice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dice/Pods-dice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dice/Pods-dice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB493D63CA7C291AC9614494 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -427,7 +426,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19328C36FA3CE233548FA432 /* Pods-dice-diceTests.debug.xcconfig */;
+			baseConfigurationReference = 16F00DD6490384336CC98A57 /* Pods-dice-diceTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -454,7 +453,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13E5C4FAB7126D24A2D8517A /* Pods-dice-diceTests.release.xcconfig */;
+			baseConfigurationReference = 0FDBF13BE5753A0F49BD58BC /* Pods-dice-diceTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -478,14 +477,14 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFDA40481AD4EB4D8316B5EA /* Pods-dice.debug.xcconfig */;
+			baseConfigurationReference = BFC6A34DFBA5CED694095D14 /* Pods-dice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = dice/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -506,13 +505,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0CB9ADDDAFE11CEBE2EA47EF /* Pods-dice.release.xcconfig */;
+			baseConfigurationReference = 540A3CA3971D12F86728282B /* Pods-dice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = dice/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
