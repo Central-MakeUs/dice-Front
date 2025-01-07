@@ -36,7 +36,6 @@ module.exports = {
       colors: {
         // Primary Color
         DEFAULT: 'black',
-        white: 'white',
 
         // Gray Scale
         dark_gray: '#333333',
