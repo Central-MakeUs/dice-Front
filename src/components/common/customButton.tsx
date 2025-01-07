@@ -4,6 +4,7 @@ import { Pressable } from 'react-native';
 import CustomText from '@components/common/customText';
 
 interface CustomButtonProps {
+  type: 'normal';
   onPress: any;
   disabled: boolean;
   color: string;
@@ -12,6 +13,7 @@ interface CustomButtonProps {
 }
 
 const CustomButton: React.FC<CustomButtonProps> = ({
+  type,
   onPress,
   disabled,
   color,
@@ -20,15 +22,19 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 }) => {
   const [isPressed, setIsPressed] = useState<boolean>(false);
 
+  const styles = {
+    normal: `w-80 h-14 mx-auto flex justify-center items-center rounded-lg`,
+  };
+
   return (
     <Pressable
       onPress={onPress}
       disabled={disabled}
       onPressIn={() => setIsPressed(true)}
       onPressOut={() => setIsPressed(false)}
-      className={`py-2 ${isPressed && 'opacity-50'} ${color}`}
+      className={`py-2 ${isPressed && 'opacity-50'} bg-${color} ${styles[type]}`}
     >
-      <CustomText className={`text-center ${textColor}`}>{text}</CustomText>
+      <CustomText className={`text-center text-${textColor}`}>{text}</CustomText>
     </Pressable>
   );
 };

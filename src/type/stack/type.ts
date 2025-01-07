@@ -3,9 +3,17 @@ import { NativeStackScreenProps, NativeStackNavigationProp } from '@react-naviga
 // 로그인 이전 유저에 대한 스크린
 export type RootStackParamList = {
   HomeScreen: undefined;
+
+  // 로그인 스크린
+  LoginScreen: undefined;
+
+  // 회원가입 스크린
+  RegisterScreen: undefined;
 };
 
 export type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'HomeScreen'>;
+export type LoginScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
+export type RegisterScreenProps = NativeStackScreenProps<RootStackParamList, 'RegisterScreen'>;
 
 // 로그인한 유저에 대한 스크린
 export type StackParamList = {
@@ -32,4 +40,15 @@ export type TopNavigationParamList = {
   MyPageScreen: undefined;
 };
 
+export type HomeScreenParamList = {
+  LoginScreen: undefined;
+  RegisterScreen: undefined;
+};
+
+export type LoginScreenParamList = {
+  HomeScreen: undefined;
+};
+
 export type TopNavigationProp = NativeStackNavigationProp<TopNavigationParamList>;
+export type HomeScreenProp = NativeStackNavigationProp<HomeScreenParamList>;
+export type LoginScreenProp = NativeStackNavigationProp<LoginScreenParamList>;
