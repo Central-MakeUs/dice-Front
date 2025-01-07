@@ -1,22 +1,13 @@
-import React, { useState } from 'react';
 import { Pressable } from 'react-native';
-import CustomText from './customText';
+import React, { useState, ReactNode } from 'react';
 
 interface CustomPressableProps {
+  children: ReactNode;
   onPress: any;
   disabled: boolean;
-  color: string;
-  text: string;
-  textColor: string;
 }
 
-const CustomPressable: React.FC<CustomPressableProps> = ({
-  onPress,
-  disabled,
-  color,
-  text,
-  textColor,
-}) => {
+const CustomPressable: React.FC<CustomPressableProps> = ({ children, onPress, disabled }) => {
   const [isPressed, setIsPressed] = useState<boolean>(false);
 
   return (
@@ -25,9 +16,9 @@ const CustomPressable: React.FC<CustomPressableProps> = ({
       disabled={disabled}
       onPressIn={() => setIsPressed(true)}
       onPressOut={() => setIsPressed(false)}
-      className={`py-2 ${isPressed && 'opacity-50'} ${color}`}
+      className={`${isPressed && 'opacity-50'} flex-1`}
     >
-      <CustomText className={`text-center ${textColor}`}>{text}</CustomText>
+      {children}
     </Pressable>
   );
 };

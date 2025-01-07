@@ -2,30 +2,29 @@ import React from 'react';
 import { useLoggedInStore } from '@zustands/member/store';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import LikeScreen from '@screens/like/like';
+import MainScreen from '@screens/main/main';
 import HomeScreen from '@screens/home/homeScreen';
-import MainScreen from '@screens/main/mainScreen';
-import CreateScreen from '@screens/create/createScreen';
-
-import BottomNavigation from '@components/bottomNavigation/bottomNavigation';
+import MyPageScreen from '@screens/myPage/myPage';
 
 import { StackParamList, RootStackParamList } from '@type/stack/type';
 
-const stack = createNativeStackNavigator<StackParamList>();
-const rootStack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<StackParamList>();
+const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 function AppInner() {
   const { isLoggedIn } = useLoggedInStore();
 
   return isLoggedIn ? (
-    <stack.Navigator initialRouteName="BottomNavigation" screenOptions={{ headerShown: false }}>
-      <stack.Screen name="BottomNavigation" component={BottomNavigation} />
-      <stack.Screen name="MainScreen" component={MainScreen} />
-      <stack.Screen name="CreateScreen" component={CreateScreen} />
-    </stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="MainScreen" component={MainScreen} />
+      <Stack.Screen name="LikeScreen" component={LikeScreen} />
+      <Stack.Screen name="MyPageScreen" component={MyPageScreen} />
+    </Stack.Navigator>
   ) : (
-    <rootStack.Navigator screenOptions={{ headerShown: false }}>
-      <rootStack.Screen name="HomeScreen" component={HomeScreen} />
-    </rootStack.Navigator>
+    <RootStack.Navigator screenOptions={{ headerShown: false }}>
+      <RootStack.Screen name="HomeScreen" component={HomeScreen} />
+    </RootStack.Navigator>
   );
 }
 
