@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Path, Control, Controller, FieldValues } from 'react-hook-form';
 import { View, TextInput, Pressable, TextInputProps } from 'react-native';
+import { Path, Control, Controller, FieldValues, RegisterOptions } from 'react-hook-form';
 
 import EyeOn from '@assets/input/eye-on.svg';
 import Delete from '@assets/input/delete.svg';
@@ -10,9 +10,10 @@ interface UserInputProps<T extends FieldValues> extends TextInputProps {
   type: 'id' | 'passwd' | 'passwd_check' | 'name' | 'email' | 'phone' | 'auth';
   name: Path<T>;
   control: Control<T>;
+  rules?: RegisterOptions<T>;
 }
 
-const UserInput = <T extends FieldValues>({ type, name, control }: UserInputProps<T>) => {
+const UserInput = <T extends FieldValues>({ type, name, control, rules }: UserInputProps<T>) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isPasswdVissible, setIsPasswdVissible] = useState<boolean>(false);
 
@@ -31,6 +32,7 @@ const UserInput = <T extends FieldValues>({ type, name, control }: UserInputProp
       <Controller
         name={name}
         control={control}
+        rules={rules}
         render={({ field: { onChange, onBlur, value } }) => (
           <View>
             <TextInput

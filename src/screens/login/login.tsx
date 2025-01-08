@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Pressable } from 'react-native';
+import { View, Alert, Pressable } from 'react-native';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import CustomText from '@components/common/customText';
@@ -18,10 +18,23 @@ interface FormData {
 }
 
 const LoginScreen = ({ navigation }: LoginScreenProps) => {
-  const { control, handleSubmit } = useForm<FormData>();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>();
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log(JSON.stringify(data));
+  const onSubmit: SubmitHandler<FormData> = (formData: FormData) => {
+    const { id, passwd } = formData;
+    Alert.alert('입력 데이터', `${id}, ${passwd}`);
+  };
+
+  const onError = () => {
+    if (errors.id) {
+      Alert.alert('입력 오류', errors.id.message);
+    } else if (errors.passwd) {
+      Alert.alert('입력 오류', errors.passwd.message);
+    }
   };
 
   return (
@@ -37,14 +50,24 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
           <View className="flex flex-col items-center">
             <CustomText className="mb-8 w-[335px] text-h1">로그인</CustomText>
             <View className="mb-3">
-              <UserInput type="id" name="id" control={control} />
+              <UserInput
+                type="id"
+                name="id"
+                control={control}
+                rules={{ required: '아이디를 입력해주세요' }}
+              />
             </View>
             <View className="mb-8">
-              <UserInput type="passwd" name="passwd" control={control} />
+              <UserInput
+                type="passwd"
+                name="passwd"
+                control={control}
+                rules={{ required: '비밀번호를 입력해주세요' }}
+              />
             </View>
             <CustomButton
               type="normal"
-              onPress={handleSubmit(onSubmit)}
+              onPress={handleSubmit(onSubmit, onError)}
               disabled={false}
               color="black"
               text="로그인"
