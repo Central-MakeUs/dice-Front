@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { View, TextInput } from 'react-native';
+import { View, TextInput, Pressable } from 'react-native';
 
+import EyeOn from '@assets/input/eye-on.svg';
 import Delete from '@assets/input/delete.svg';
 import EyeOff from '@assets/input/eye-off.svg';
-// import EyeOn from '@assets/input/eye-on.svg';
 
 interface UserInputProps {
   type: 'id' | 'passwd' | 'passwd_check';
@@ -12,6 +12,7 @@ interface UserInputProps {
 const UserInput: React.FC<UserInputProps> = ({ type }) => {
   const [value, setValue] = useState<string>('');
   const [isFocused, setIsFocused] = useState(false);
+  const [isPasswdVissible, setIsPasswdVissible] = useState<boolean>(false);
 
   const placeholder = {
     id: '아이디를 입력해주세요',
@@ -26,14 +27,29 @@ const UserInput: React.FC<UserInputProps> = ({ type }) => {
           isFocused ? 'border-black' : 'border-light_gray'
         }`}
         autoCapitalize="characters"
-        secureTextEntry={type === 'passwd' ? true : false}
+        secureTextEntry={type === 'passwd' && !isPasswdVissible ? true : false}
         placeholder={placeholder[type]}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
+        value={value}
         onChangeText={setValue}
       />
-      {value ? <Delete /> : null}
-      {type === 'passwd' ? <EyeOff /> : null}
+      {value ? (
+        <Pressable
+          onPress={() => setValue('')}
+          className={`absolute ${type === 'passwd' ? 'right-10' : 'right-0'} top-0 m-3`}
+        >
+          <Delete width={18} height={18} />
+        </Pressable>
+      ) : null}
+      {type === 'passwd' ? (
+        <Pressable
+          onPress={() => setIsPasswdVissible(!isPasswdVissible)}
+          className="absolute right-0 top-0 m-3"
+        >
+          {isPasswdVissible ? <EyeOn width={18} height={18} /> : <EyeOff width={18} height={18} />}
+        </Pressable>
+      ) : null}
     </View>
   );
 };

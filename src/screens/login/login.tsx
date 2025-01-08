@@ -15,8 +15,11 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
   return (
     <SafeArea>
       <View className="h-full w-full p-5">
-        <Pressable onPress={() => navigation.goBack()}>
-          <X />
+        <Pressable
+          className="flex h-12 w-12 items-center justify-center"
+          onPress={() => navigation.goBack()}
+        >
+          <X width={24} height={24} />
         </Pressable>
         <View className="flex h-full flex-col justify-center">
           <View className="flex flex-col items-center">
