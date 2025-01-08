@@ -1,7 +1,5 @@
 import React from 'react';
-import { Pressable, ScrollView } from 'react-native';
-
-import CustomText from '@components/common/customText';
+import { Text, Pressable, ScrollView } from 'react-native';
 
 import SafeArea from '@providers/safeArea';
 
@@ -18,10 +16,10 @@ const DetailScreen = ({ navigation, route }: DetailScreenProps) => {
     <SafeArea>
       <ScrollView contentContainerStyle={{ paddingHorizontal: 16 }}>
         <Pressable onPress={toBack}>
-          <CustomText>뒤로가기</CustomText>
+          <Text>뒤로가기</Text>
         </Pressable>
 
-        <CustomText>{id}</CustomText>
+        <Text>{id}</Text>
       </ScrollView>
     </SafeArea>
   );

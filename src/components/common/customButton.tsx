@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { Pressable } from 'react-native';
-
-import CustomText from '@components/common/customText';
+import { Text, Pressable } from 'react-native';
 
 interface CustomButtonProps {
   onPress: any;
@@ -28,7 +26,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       onPressOut={() => setIsPressed(false)}
       className={`py-2 ${isPressed && 'opacity-50'} ${color}`}
     >
-      <CustomText className={`text-center ${textColor}`}>{text}</CustomText>
+      <Text className={`text-center font-BTN1 text-BTN1 ${textColor}`}>{text}</Text>
     </Pressable>
   );
 };

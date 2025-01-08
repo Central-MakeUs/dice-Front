@@ -1,7 +1,5 @@
 import React from 'react';
-import { View, Pressable } from 'react-native';
-
-import CustomText from '@components/common/customText';
+import { View, Text, Pressable } from 'react-native';
 
 import SafeArea from '@providers/safeArea';
 
@@ -12,10 +10,10 @@ const LikeScreen = ({ navigation }: LikeScreenProps) => {
     <SafeArea>
       <View className="flex-1">
         <Pressable onPress={() => navigation.goBack()}>
-          <CustomText>뒤로가기</CustomText>
+          <Text>뒤로가기</Text>
         </Pressable>
 
-        <CustomText>좋아요 스크린</CustomText>
+        <Text>좋아요 스크린</Text>
       </View>
     </SafeArea>
   );
