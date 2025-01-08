@@ -1,4 +1,5 @@
 import React from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { View, Pressable, ScrollView } from 'react-native';
 
 import CustomText from '@components/common/customText';
@@ -11,7 +12,22 @@ import { RegisterScreenProps } from '@type/stack/type';
 
 import X from '@assets/x.svg';
 
+interface FormData {
+  id: string;
+  passwd: string;
+  passwd_check: string;
+  name: string;
+  email: string;
+  phone: string;
+}
+
 const RegisterScreen = ({ navigation }: RegisterScreenProps) => {
+  const { control, handleSubmit } = useForm<FormData>();
+
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    console.log(JSON.stringify(data));
+  };
+
   return (
     <SafeArea>
       <View className="h-full w-full p-5">
@@ -30,49 +46,49 @@ const RegisterScreen = ({ navigation }: RegisterScreenProps) => {
                   <CustomText>아이디</CustomText>
                   <CustomText className="text-red">*</CustomText>
                 </View>
-                <UserInput type="id" />
+                <UserInput type="id" name="id" control={control} />
               </View>
               <View className="mb-6">
                 <View className="mb-2 flex flex-row">
                   <CustomText>비밀번호</CustomText>
                   <CustomText className="text-red">*</CustomText>
                 </View>
-                <UserInput type="passwd" />
+                <UserInput type="passwd" name="passwd" control={control} />
               </View>
               <View className="mb-6">
                 <View className="mb-2 flex flex-row">
                   <CustomText>비밀번호 확인</CustomText>
                   <CustomText className="text-red">*</CustomText>
                 </View>
-                <UserInput type="passwd_check" />
+                <UserInput type="passwd_check" name="passwd_check" control={control} />
               </View>
               <View className="mb-6">
                 <View className="mb-2 flex flex-row">
                   <CustomText>이름</CustomText>
                   <CustomText className="text-red">*</CustomText>
                 </View>
-                <UserInput type="name" />
+                <UserInput type="name" name="name" control={control} />
               </View>
               <View className="mb-6">
                 <View className="mb-2 flex flex-row">
                   <CustomText>이메일</CustomText>
                   <CustomText className="text-red">*</CustomText>
                 </View>
-                <UserInput type="email" />
+                <UserInput type="email" name="email" control={control} />
               </View>
               <View className="mb-6">
                 <View className="mb-2 flex flex-row">
                   <CustomText>휴대폰</CustomText>
                   <CustomText className="text-red">*</CustomText>
                 </View>
-                <UserInput type="phone" />
+                <UserInput type="phone" name="phone" control={control} />
               </View>
             </View>
           </ScrollView>
         </View>
         <CustomButton
           type="normal"
-          onPress={() => console.log('login')}
+          onPress={handleSubmit(onSubmit)}
           disabled={false}
           color="black"
           text="회원가입"

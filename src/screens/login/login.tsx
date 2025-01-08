@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Pressable } from 'react-native';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 import CustomText from '@components/common/customText';
 import UserInput from '@components/userInput/userInput';
@@ -11,7 +12,18 @@ import { LoginScreenProps } from '@type/stack/type';
 
 import X from '@assets/x.svg';
 
+interface FormData {
+  id: string;
+  passwd: string;
+}
+
 const LoginScreen = ({ navigation }: LoginScreenProps) => {
+  const { control, handleSubmit } = useForm<FormData>();
+
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    console.log(JSON.stringify(data));
+  };
+
   return (
     <SafeArea>
       <View className="h-full w-full p-5">
@@ -25,14 +37,14 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
           <View className="flex flex-col items-center">
             <CustomText className="mb-8 w-[335px] text-h1">로그인</CustomText>
             <View className="mb-3">
-              <UserInput type="id" />
+              <UserInput type="id" name="id" control={control} />
             </View>
             <View className="mb-8">
-              <UserInput type="passwd" />
+              <UserInput type="passwd" name="passwd" control={control} />
             </View>
             <CustomButton
               type="normal"
-              onPress={() => console.log('login')}
+              onPress={handleSubmit(onSubmit)}
               disabled={false}
               color="black"
               text="로그인"
