@@ -1,15 +1,16 @@
 import React from 'react';
 import { View, Text, Pressable } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { useLoggedInStore } from '@zustands/member/store';
 
 import CustomText from '@components/common/customText';
+import CustomButton from '@components/common/customButton';
 
 import SafeArea from '@providers/safeArea';
 
-import Logo from '@assets/topNavigation/logo-black.svg';
-import CustomButton from '@components/common/customButton';
-import { useNavigation } from '@react-navigation/native';
 import { HomeScreenProp } from '@type/stack/type';
+
+import Logo from '@assets/topNavigation/logo-black.svg';
 
 const HomeScreen = () => {
   const { setIsLoggedIn } = useLoggedInStore();
@@ -23,9 +24,9 @@ const HomeScreen = () => {
   return (
     <SafeArea>
       <View className="flex-1 items-center justify-center space-y-2">
-        <View className="w-[180px] h-[180px]">
+        <View className="h-[180px] w-[180px]">
           <Logo width={180} height={180} />
-          <CustomText className="text-sub2 font-sub2 absolute top-3/4">
+          <CustomText className="absolute top-3/4 text-sub2 font-sub2">
             팝업 운영 올인원 솔루션
           </CustomText>
         </View>

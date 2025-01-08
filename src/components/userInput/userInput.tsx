@@ -6,7 +6,7 @@ import Delete from '@assets/input/delete.svg';
 import EyeOff from '@assets/input/eye-off.svg';
 
 interface UserInputProps {
-  type: 'id' | 'passwd' | 'passwd_check';
+  type: 'id' | 'passwd' | 'passwd_check' | 'name' | 'email' | 'phone' | 'auth';
 }
 
 const UserInput: React.FC<UserInputProps> = ({ type }) => {
@@ -18,6 +18,10 @@ const UserInput: React.FC<UserInputProps> = ({ type }) => {
     id: '아이디를 입력해주세요',
     passwd: '비밀번호를 입력해주세요',
     passwd_check: '비밀번호를 한 번 더 입력해주세요',
+    name: '이름을 입력해주세요',
+    email: '예: popupdice',
+    phone: '숫자만 입력해주세요',
+    auth: '인증번호 받기',
   };
 
   return (
@@ -42,7 +46,7 @@ const UserInput: React.FC<UserInputProps> = ({ type }) => {
           <Delete width={18} height={18} />
         </Pressable>
       ) : null}
-      {type === 'passwd' ? (
+      {type === 'passwd' || type === 'passwd_check' ? (
         <Pressable
           onPress={() => setIsPasswdVissible(!isPasswdVissible)}
           className="absolute right-0 top-0 m-3"
