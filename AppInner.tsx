@@ -6,6 +6,7 @@ import LikeScreen from '@screens/like/like';
 import MainScreen from '@screens/main/main';
 import HomeScreen from '@screens/home/homeScreen';
 import MyPageScreen from '@screens/myPage/myPage';
+import DetailScreen from '@screens/detail/detail';
 
 import { StackParamList, RootStackParamList } from '@type/stack/type';
 
@@ -18,6 +19,7 @@ function AppInner() {
   return isLoggedIn ? (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="MainScreen" component={MainScreen} />
+      <Stack.Screen name="DetailScreen" component={DetailScreen} />
       <Stack.Screen name="LikeScreen" component={LikeScreen} />
       <Stack.Screen name="MyPageScreen" component={MyPageScreen} />
     </Stack.Navigator>
