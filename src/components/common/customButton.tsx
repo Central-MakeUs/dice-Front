@@ -23,7 +23,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   const [isPressed, setIsPressed] = useState<boolean>(false);
 
   const styles = {
-    normal: `w-80 h-14 mx-auto flex justify-center items-center rounded-lg`,
+    normal: `w-[335px] h-[52px] mx-auto flex justify-center items-center rounded-lg`,
   };
 
   return (
