@@ -41,6 +41,10 @@ module.exports = {
         CAP2: '150%',
         BTN1: '150%',
       },
+      backgroundColor: {
+        basic: 'rgba(0, 0, 0, 0.5)',
+        light: 'rgba(0, 0, 0, 0.2)',
+      },
       colors: {
         // Primary Color
         DEFAULT: 'black',
@@ -61,8 +65,8 @@ module.exports = {
         back_gray: '#F4F4F4',
 
         // Dim Color
-        basic: 'rgba(0, 0, 0, 0.5)',
-        light: 'rgba(0, 0, 0, 0.2)',
+        // basic: 'rgba(0, 0, 0, 0.5)',
+        // light: 'rgba(0, 0, 0, 0.2)',
       },
     },
   },
