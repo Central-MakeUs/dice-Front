@@ -4,11 +4,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import LikeScreen from '@screens/like/like';
 import MainScreen from '@screens/main/main';
+import LoginScreen from '@screens/login/login';
 import HomeScreen from '@screens/home/homeScreen';
 import MyPageScreen from '@screens/myPage/myPage';
-import LoginScreen from '@screens/login/login';
-import RegisterScreen from '@screens/register/register';
 import DetailScreen from '@screens/detail/detail';
+import RegisterScreen from '@screens/register/register';
 
 import { StackParamList, RootStackParamList } from '@type/stack/type';
 

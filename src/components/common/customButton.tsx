@@ -32,7 +32,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       onPressOut={() => setIsPressed(false)}
       className={`py-2 ${isPressed && 'opacity-50'} bg-${color} ${styles[type]}`}
     >
-      <Text className={`text-center font-BTN1 text-BTN1 ${textColor}`}>{text}</Text>
+      <Text className={`text-${textColor} text-center font-BTN1 text-BTN1`}>{text}</Text>
     </Pressable>
   );
 };
