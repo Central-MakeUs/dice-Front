@@ -21,7 +21,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   const [isPressed, setIsPressed] = useState<boolean>(false);
 
   const styles = {
-    normal: `w-[335px] h-[52px] mx-auto flex justify-center items-center rounded-lg`,
+    normal: `w-full mx-auto flex justify-center items-center rounded-lg`,
   };
 
   return (
@@ -30,7 +30,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       disabled={disabled}
       onPressIn={() => setIsPressed(true)}
       onPressOut={() => setIsPressed(false)}
-      className={`py-2 ${isPressed && 'opacity-50'} bg-${color} ${styles[type]}`}
+      className={`py-4 ${isPressed && 'opacity-50'} bg-${color} ${styles[type]}`}
     >
       <Text className={`text-${textColor} text-center font-BTN1 text-BTN1`}>{text}</Text>
     </Pressable>

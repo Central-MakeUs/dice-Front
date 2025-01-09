@@ -28,7 +28,7 @@ const UserInput = <T extends FieldValues>({ type, name, control, rules }: UserIn
   };
 
   return (
-    <View className="relative h-11 w-[335px]">
+    <View className="relative h-11 w-full">
       <Controller
         name={name}
         control={control}
