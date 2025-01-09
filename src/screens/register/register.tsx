@@ -49,14 +49,11 @@ const RegisterScreen = ({ navigation }: RegisterScreenProps) => {
 
   return (
     <SafeArea>
-      <View className="h-full w-full p-5">
-        <Pressable
-          className="flex h-12 w-12 items-center justify-center"
-          onPress={() => navigation.goBack()}
-        >
+      <View className="relative h-full w-full p-5">
+        <Pressable className="absolute m-5" onPress={() => navigation.goBack()}>
           <X width={24} height={24} />
         </Pressable>
-        <View className="flex-1 flex-col justify-center">
+        <View className="mt-8 flex-1 flex-col justify-center">
           <ScrollView>
             <View className="flex flex-col">
               <Text className="my-6 w-[335px] font-H1 text-H1">회원가입</Text>
