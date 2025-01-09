@@ -1,12 +1,13 @@
 import React, { useRef, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { useLoggedInStore } from '@zustands/member/store';
 import { View, Text, Animated, Pressable, Dimensions } from 'react-native';
 
 import { TopNavigationProp } from '@type/stack/type';
 
 import My from '@assets/topNavigation/my.svg';
-import Logo from '@assets/topNavigation/logo-white.svg';
 import Heart from '@assets/topNavigation/heart.svg';
+import Logo from '@assets/topNavigation/logo-white.svg';
 
 interface TopNavigationProps {
   type: 'popUp' | 'recruit';
@@ -14,6 +15,8 @@ interface TopNavigationProps {
 }
 
 const TopNavigation: React.FC<TopNavigationProps> = ({ type, handleType }) => {
+  const { setIsLoggedIn } = useLoggedInStore();
+
   const navigation = useNavigation<TopNavigationProp>();
 
   const width = Dimensions.get('screen').width;
@@ -42,7 +45,9 @@ const TopNavigation: React.FC<TopNavigationProps> = ({ type, handleType }) => {
 
   return (
     <View className="fixed z-10 flex h-[72px] w-full flex-row items-center justify-between bg-black py-3 pl-5">
-      <Logo />
+      <Pressable onPress={() => setIsLoggedIn(false)}>
+        <Logo />
+      </Pressable>
 
       <Pressable
         onPress={() => slideAnimation()}
