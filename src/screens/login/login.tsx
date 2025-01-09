@@ -46,7 +46,7 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
           <X width={24} height={24} />
         </Pressable>
         <View className="flex h-full flex-col justify-center">
-          <View className="flex flex-col items-center">
+          <View className="flex flex-col">
             <Text className="mb-8 w-[335px] font-H1 text-H1">로그인</Text>
             <View className="mb-3">
               <UserInput
@@ -72,7 +72,7 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
               text="로그인"
               textColor="white"
             />
-            <View className="flex flex-row gap-2 p-4">
+            <View className="mt-[11px] flex flex-row items-center justify-center space-x-4 px-4 py-2.5">
               <Text className="font-BTN1 text-BTN1 text-medium_gray">아이디 찾기</Text>
               <Text className="font-BTN1 text-BTN1 text-medium_gray">|</Text>
               <Text className="font-BTN1 text-BTN1 text-medium_gray">비밀번호 찾기</Text>
