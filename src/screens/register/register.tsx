@@ -1,8 +1,7 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { View, Alert, Pressable, ScrollView } from 'react-native';
+import { View, Text, Alert, Pressable, ScrollView } from 'react-native';
 
-import CustomText from '@components/common/customText';
 import UserInput from '@components/userInput/userInput';
 import CustomButton from '@components/common/customButton';
 
@@ -60,11 +59,11 @@ const RegisterScreen = ({ navigation }: RegisterScreenProps) => {
         <View className="flex-1 flex-col justify-center">
           <ScrollView>
             <View className="flex flex-col items-center">
-              <CustomText className="my-6 w-[335px] text-h1">회원가입</CustomText>
+              <Text className="my-6 w-[335px] font-BTN1 text-BTN1">회원가입</Text>
               <View className="mb-6">
                 <View className="mb-2 flex flex-row">
-                  <CustomText>아이디</CustomText>
-                  <CustomText className="text-red">*</CustomText>
+                  <Text className="font-CAP1 text-CAP1">아이디</Text>
+                  <Text className="font-CAP1 text-CAP1 text-red">*</Text>
                 </View>
                 <UserInput
                   type="id"
@@ -75,8 +74,8 @@ const RegisterScreen = ({ navigation }: RegisterScreenProps) => {
               </View>
               <View className="mb-6">
                 <View className="mb-2 flex flex-row">
-                  <CustomText>비밀번호</CustomText>
-                  <CustomText className="text-red">*</CustomText>
+                  <Text className="font-CAP1 text-CAP1">비밀번호</Text>
+                  <Text className="font-CAP1 text-CAP1 text-red">*</Text>
                 </View>
                 <UserInput
                   type="passwd"
@@ -87,8 +86,8 @@ const RegisterScreen = ({ navigation }: RegisterScreenProps) => {
               </View>
               <View className="mb-6">
                 <View className="mb-2 flex flex-row">
-                  <CustomText>비밀번호 확인</CustomText>
-                  <CustomText className="text-red">*</CustomText>
+                  <Text className="font-CAP1 text-CAP1">비밀번호 확인</Text>
+                  <Text className="font-CAP1 text-CAP1 text-red">*</Text>
                 </View>
                 <UserInput
                   type="passwd_check"
@@ -99,8 +98,8 @@ const RegisterScreen = ({ navigation }: RegisterScreenProps) => {
               </View>
               <View className="mb-6">
                 <View className="mb-2 flex flex-row">
-                  <CustomText>이름</CustomText>
-                  <CustomText className="text-red">*</CustomText>
+                  <Text className="font-CAP1 text-CAP1">이름</Text>
+                  <Text className="font-CAP1 text-CAP1 text-red">*</Text>
                 </View>
                 <UserInput
                   type="name"
@@ -111,8 +110,8 @@ const RegisterScreen = ({ navigation }: RegisterScreenProps) => {
               </View>
               <View className="mb-6">
                 <View className="mb-2 flex flex-row">
-                  <CustomText>이메일</CustomText>
-                  <CustomText className="text-red">*</CustomText>
+                  <Text className="font-CAP1 text-CAP1">이메일</Text>
+                  <Text className="font-CAP1 text-CAP1 text-red">*</Text>
                 </View>
                 <UserInput
                   type="email"
@@ -123,8 +122,8 @@ const RegisterScreen = ({ navigation }: RegisterScreenProps) => {
               </View>
               <View className="mb-6">
                 <View className="mb-2 flex flex-row">
-                  <CustomText>휴대폰</CustomText>
-                  <CustomText className="text-red">*</CustomText>
+                  <Text className="font-CAP1 text-CAP1">휴대폰</Text>
+                  <Text className="font-CAP1 text-CAP1 text-red">*</Text>
                 </View>
                 <UserInput
                   type="phone"

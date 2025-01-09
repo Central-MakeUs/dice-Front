@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Alert, Pressable } from 'react-native';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { View, Text, Alert, Pressable } from 'react-native';
 
-import CustomText from '@components/common/customText';
 import UserInput from '@components/userInput/userInput';
 import CustomButton from '@components/common/customButton';
 
@@ -48,7 +47,7 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
         </Pressable>
         <View className="flex h-full flex-col justify-center">
           <View className="flex flex-col items-center">
-            <CustomText className="mb-8 w-[335px] text-h1">로그인</CustomText>
+            <Text className="mb-8 w-[335px] font-BTN1 text-BTN1">로그인</Text>
             <View className="mb-3">
               <UserInput
                 type="id"
@@ -74,9 +73,9 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
               textColor="white"
             />
             <View className="flex flex-row gap-2 p-4">
-              <CustomText className="text-medium_gray">아이디 찾기</CustomText>
-              <CustomText className="text-medium_gray">|</CustomText>
-              <CustomText className="text-medium_gray">비밀번호 찾기</CustomText>
+              <Text className="font-BTN1 text-BTN1 text-medium_gray">아이디 찾기</Text>
+              <Text className="font-BTN1 text-BTN1 text-medium_gray">|</Text>
+              <Text className="font-BTN1 text-BTN1 text-medium_gray">비밀번호 찾기</Text>
             </View>
           </View>
         </View>
