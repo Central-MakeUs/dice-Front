@@ -1,10 +1,16 @@
 import React from 'react';
+import { View, Text, Pressable } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { useLoggedInStore } from '@zustands/member/store';
-import { View, Text, TouchableOpacity } from 'react-native';
+
+import CustomText from '@components/common/customText';
+import CustomButton from '@components/common/customButton';
 
 import SafeArea from '@providers/safeArea';
 
-import ExampleImage from '@assets/example.svg';
+import { HomeScreenProp } from '@type/stack/type';
+
+import Logo from '@assets/topNavigation/logo-black.svg';
 
 const HomeScreen = () => {
   const { setIsLoggedIn } = useLoggedInStore();
@@ -13,22 +19,36 @@ const HomeScreen = () => {
     setIsLoggedIn(true);
   };
 
+  const navigation = useNavigation<HomeScreenProp>();
+
   return (
     <SafeArea>
-      <View className="flex-1 items-center justify-center space-y-2 bg-white">
-        <Text className="font-H1 text-H1 leading-H1">헤더1</Text>
-        <Text className="font-H2 text-H2 leading-H2">헤더2</Text>
-        <Text className="font-SUB1 text-SUB1 leading-SUB1">서브타이틀1</Text>
-        <Text className="font-SUB2 text-SUB2 leading-SUB2">서브타이틀2</Text>
-        <Text className="font-BODY1 text-BODY1 leading-BODY1">바디1</Text>
-        <Text className="font-BODY2 text-BODY2 leading-BODY2">바디2</Text>
-        <Text className="font-CAP1 text-CAP1 leading-CAP1">캡션1</Text>
-        <Text className="font-CAP2 text-CAP2 leading-CAP2">캡션2</Text>
-        <Text className="font-BTN1 text-BTN1 leading-BTN1">버튼1</Text>
-
-        <TouchableOpacity onPress={handleLoggedIn}>
-          <ExampleImage width={120} height={120} />
-        </TouchableOpacity>
+      <View className="flex-1 items-center justify-center space-y-2">
+        <View className="h-[180px] w-[180px]">
+          <Logo width={180} height={180} />
+          <CustomText className="absolute top-3/4 text-sub2 font-sub2">
+            팝업 운영 올인원 솔루션
+          </CustomText>
+        </View>
+      </View>
+      <View className="">
+        <CustomButton
+          type="normal"
+          onPress={() => navigation.navigate('LoginScreen')}
+          disabled={false}
+          color="black"
+          text="다이스 아이디로 로그인"
+          textColor="white"
+        />
+        <View className="flex flex-row justify-center gap-2 p-4">
+          <Pressable onPress={() => navigation.navigate('RegisterScreen')}>
+            <CustomText className="text-medium_gray underline">회원으로 가입하기</CustomText>
+          </Pressable>
+          <Text className="text-medium_gray">|</Text>
+          <Pressable onPress={handleLoggedIn}>
+            <CustomText className="text-medium_gray underline">비회원으로 둘러보기</CustomText>
+          </Pressable>
+        </View>
       </View>
     </SafeArea>
   );

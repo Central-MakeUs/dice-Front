@@ -6,6 +6,8 @@ import LikeScreen from '@screens/like/like';
 import MainScreen from '@screens/main/main';
 import HomeScreen from '@screens/home/homeScreen';
 import MyPageScreen from '@screens/myPage/myPage';
+import LoginScreen from '@screens/login/login';
+import RegisterScreen from '@screens/register/register';
 import DetailScreen from '@screens/detail/detail';
 
 import { StackParamList, RootStackParamList } from '@type/stack/type';
@@ -26,6 +28,8 @@ function AppInner() {
   ) : (
     <RootStack.Navigator screenOptions={{ headerShown: false }}>
       <RootStack.Screen name="HomeScreen" component={HomeScreen} />
+      <RootStack.Screen name="LoginScreen" component={LoginScreen} />
+      <RootStack.Screen name="RegisterScreen" component={RegisterScreen} />
     </RootStack.Navigator>
   );
 }

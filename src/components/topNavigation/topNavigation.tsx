@@ -5,7 +5,7 @@ import { View, Text, Animated, Pressable, Dimensions } from 'react-native';
 import { TopNavigationProp } from '@type/stack/type';
 
 import My from '@assets/topNavigation/my.svg';
-import Logo from '@assets/topNavigation/logo.svg';
+import Logo from '@assets/topNavigation/logo-white.svg';
 import Heart from '@assets/topNavigation/heart.svg';
 
 interface TopNavigationProps {
