@@ -20,13 +20,16 @@ const PopUpScreen = ({ navigation }: PopUpScreenProps) => {
   return (
     <View className="flex-1 space-y-4">
       <FlatList
-        className="px-5"
         // 렌더링하는 전체 데이터
         data={popUpData}
         // 각 아이템의 key 값 지정
         keyExtractor={(item) => item.id.toString()}
         // 아이템들을 렌더링하는 메서드
-        renderItem={({ item }) => <CardComponent storeData={item} navigation={navigation} />}
+        renderItem={({ item }) => (
+          <View className="px-5">
+            <CardComponent storeData={item} navigation={navigation} />
+          </View>
+        )}
         // FlatList의 최상단에 렌더링되는 Header 아이템
         ListHeaderComponent={<HeaderComponent handleLayout={handleLayout} />}
         // FlatList의 최하단에 렌더링되는 Footer 아이템

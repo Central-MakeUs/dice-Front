@@ -5,7 +5,7 @@ import CustomPressable from '@components/common/customPressable';
 
 import { MainScreenProps } from '@type/stack/type';
 
-import LikeIcon from '@assets/mainScreen/like.svg';
+import LikeIcon from '@assets/popUp/like.svg';
 
 interface CardComponentProps {
   storeData: {
@@ -32,31 +32,31 @@ const CardComponent: React.FC<CardComponentProps> = ({ storeData, navigation }) 
       <View className="rounded-lg border border-[#EEEEEE] bg-white">
         <Image source={{ uri: storeData.thumbnail }} className="aspect-[2/1] rounded-t-lg" />
 
-        <View className="flex flex-row items-start justify-between p-4 pr-0">
+        <View className="flex flex-row items-start justify-between p-4 pr-0 pt-2">
           <View className="space-y-4">
-            <View className="space-y-1">
-              <Text className="text-cap1 font-cap1 text-[#AAAAAA]">
+            <View>
+              <Text className="font-CAP1 text-CAP1 leading-6 text-[#AAAAAA]">
                 {storeData.cityName} · {storeData.neighborhoodName}
               </Text>
 
-              <Text className="text-sub2 font-sub2 text-black">{storeData.name}</Text>
+              <Text className="font-SUB2 text-SUB2 leading-6 text-black">{storeData.name}</Text>
 
-              <Text className="text-cap2 font-cap2 text-medium_gray">
+              <Text className="font-CAP1 text-CAP1 leading-6 text-medium_gray">
                 {storeData.area}m² · {storeData.numOfPeople}명 수용 가능
               </Text>
             </View>
 
             <View>
-              <Text className="text-lg font-medium text-deep_gray">
+              <Text className="font-SUB2 text-SUB2 text-deep_gray">
                 1일 대여{' '}
-                <Text className="text-sub1 font-sub1 text-purple">
+                <Text className="font-SUB1 text-SUB1 text-purple">
                   {storeData.price.toLocaleString()}원
                 </Text>
               </Text>
             </View>
           </View>
 
-          <Pressable className="mt-1.5 border p-3">
+          <Pressable className="mt-1.5 p-3">
             <LikeIcon />
           </Pressable>
         </View>
