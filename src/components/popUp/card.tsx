@@ -24,7 +24,7 @@ interface CardComponentProps {
 
 const CardComponent: React.FC<CardComponentProps> = ({ storeData, navigation }) => {
   const toDetail = () => {
-    navigation.navigate('DetailScreen', { id: storeData.id });
+    navigation.navigate('PopUpDetailScreen', { id: storeData.id });
   };
 
   return (
