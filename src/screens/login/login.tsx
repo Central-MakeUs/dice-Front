@@ -47,7 +47,7 @@ const LoginScreen = ({ navigation }: LoginScreenProps) => {
         </Pressable>
         <View className="flex h-full flex-col justify-center">
           <View className="flex flex-col items-center">
-            <Text className="mb-8 w-[335px] font-BTN1 text-BTN1">로그인</Text>
+            <Text className="mb-8 w-[335px] font-H1 text-H1">로그인</Text>
             <View className="mb-3">
               <UserInput
                 type="id"
