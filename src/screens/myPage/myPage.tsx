@@ -1,7 +1,5 @@
 import React from 'react';
-import { View, Pressable } from 'react-native';
-
-import CustomText from '@components/common/customText';
+import { View, Text, Pressable } from 'react-native';
 
 import SafeArea from '@providers/safeArea';
 
@@ -12,10 +10,10 @@ const MyPageScreen = ({ navigation }: MyPageScreenProps) => {
     <SafeArea>
       <View className="flex-1">
         <Pressable onPress={() => navigation.goBack()}>
-          <CustomText>뒤로가기</CustomText>
+          <Text>뒤로가기</Text>
         </Pressable>
 
-        <CustomText>마이페이지 스크린</CustomText>
+        <Text>마이페이지 스크린</Text>
       </View>
     </SafeArea>
   );
