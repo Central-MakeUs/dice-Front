@@ -28,7 +28,7 @@ const HomeScreen = () => {
           <Text className="absolute top-3/4 font-SUB2 text-SUB2">팝업 운영 올인원 솔루션</Text>
         </View>
       </View>
-      <View className="">
+      <View className="px-5">
         <CustomButton
           type="normal"
           onPress={() => navigation.navigate('LoginScreen')}
@@ -37,7 +37,7 @@ const HomeScreen = () => {
           text="다이스 아이디로 로그인"
           textColor="white"
         />
-        <View className="flex flex-row justify-center gap-2 p-4">
+        <View className="mt-[11px] flex flex-row justify-center space-x-2 p-4">
           <Pressable onPress={() => navigation.navigate('RegisterScreen')}>
             <Text className="font-BTN1 text-BTN1 text-medium_gray underline">
               회원으로 가입하기

@@ -58,8 +58,8 @@ const RegisterScreen = ({ navigation }: RegisterScreenProps) => {
         </Pressable>
         <View className="flex-1 flex-col justify-center">
           <ScrollView>
-            <View className="flex flex-col items-center">
-              <Text className="my-6 w-[335px] font-BTN1 text-BTN1">회원가입</Text>
+            <View className="flex flex-col">
+              <Text className="my-6 w-[335px] font-H1 text-H1">회원가입</Text>
               <View className="mb-6">
                 <View className="mb-2 flex flex-row">
                   <Text className="font-CAP1 text-CAP1">아이디</Text>

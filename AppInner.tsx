@@ -7,8 +7,8 @@ import MainScreen from '@screens/main/main';
 import LoginScreen from '@screens/login/login';
 import HomeScreen from '@screens/home/homeScreen';
 import MyPageScreen from '@screens/myPage/myPage';
-import DetailScreen from '@screens/detail/detail';
 import RegisterScreen from '@screens/register/register';
+import PopUpDetailScreen from '@screens/popUpDetail/popUpDetail';
 
 import { StackParamList, RootStackParamList } from '@type/stack/type';
 
@@ -21,7 +21,7 @@ function AppInner() {
   return isLoggedIn ? (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="MainScreen" component={MainScreen} />
-      <Stack.Screen name="DetailScreen" component={DetailScreen} />
+      <Stack.Screen name="PopUpDetailScreen" component={PopUpDetailScreen} />
       <Stack.Screen name="LikeScreen" component={LikeScreen} />
       <Stack.Screen name="MyPageScreen" component={MyPageScreen} />
     </Stack.Navigator>

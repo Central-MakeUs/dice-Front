@@ -18,7 +18,7 @@ export type RegisterScreenProps = NativeStackScreenProps<RootStackParamList, 'Re
 // 로그인한 유저에 대한 스크린
 export type StackParamList = {
   MainScreen: undefined;
-  DetailScreen: { id: number };
+  PopUpDetailScreen: { id: number };
 
   // 좋아요 스크린
   LikeScreen: undefined;
@@ -30,7 +30,7 @@ export type StackParamList = {
 export type MainScreenProps = NativeStackScreenProps<StackParamList, 'MainScreen'>;
 export type PopUpScreenProps = { navigation: MainScreenProps['navigation'] };
 export type RecruitScreenProps = { navigation: MainScreenProps['navigation'] };
-export type DetailScreenProps = NativeStackScreenProps<StackParamList, 'DetailScreen'>;
+export type PopUpDetailScreenProps = NativeStackScreenProps<StackParamList, 'PopUpDetailScreen'>;
 export type LikeScreenProps = NativeStackScreenProps<StackParamList, 'LikeScreen'>;
 export type MyPageScreenProps = NativeStackScreenProps<StackParamList, 'MyPageScreen'>;
 
