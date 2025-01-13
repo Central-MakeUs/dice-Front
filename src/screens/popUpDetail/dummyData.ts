@@ -25,6 +25,8 @@ export const dummyData = {
   location: '서울 성동구 성수이로7가길 3, B1층',
   locationDescription: '성수역 도보 9분',
 
+  homepage: 'https://www.instagram.com/matmul.kr',
+
   usageInformation: [
     '공간별 조명 밝기 조절 가능',
     '빔프로젝터',
