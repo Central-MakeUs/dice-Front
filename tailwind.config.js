@@ -64,9 +64,8 @@ module.exports = {
         // Background Color
         back_gray: '#F4F4F4',
 
-        // Dim Color
-        // basic: 'rgba(0, 0, 0, 0.5)',
-        // light: 'rgba(0, 0, 0, 0.2)',
+        // Stroke Color
+        stroke: '#EEEEEE',
       },
     },
   },
