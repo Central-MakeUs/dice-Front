@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { View, Linking, Platform, Dimensions, SafeAreaView } from 'react-native';
+import { View, Dimensions, SafeAreaView } from 'react-native';
 import {
   NaverMapView,
   NaverMapViewRef,
@@ -18,6 +18,9 @@ import {
 import { dummyData } from './dummyData';
 
 import { getGeocode } from '@server/naverMap';
+
+import { makeCall } from '@utils/phoneCall';
+import { openWebSite } from '@utils/website';
 
 import { PopUpDetailScreenProps } from '@type/stack/type';
 
@@ -70,17 +73,6 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
 
   const [isFullDescription, setIsFullDescription] = useState<boolean>(false);
   const [numOfUsageInformation, setNumOfUsageInformation] = useState<number>(3);
-
-  const makeCall = () => {
-    if (dummyData.phoneNumber != '' && dummyData.phoneNumber.length > 0) {
-      if (Platform.OS === 'android') {
-        Linking.openURL(`tel:${dummyData.phoneNumber}`);
-      } else {
-        // iOS에서 전화 걸기
-        Linking.openURL(`tel://${dummyData.phoneNumber}`);
-      }
-    }
-  };
 
   return (
     <View className="flex-1">
@@ -227,7 +219,10 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
               </NaverMapMarkerOverlay>
             </NaverMapView>
 
-            <Pressable className="flex flex-row justify-center space-x-1 rounded-lg border border-[#EEEEEE] p-4">
+            <Pressable
+              onPress={() => openWebSite(detailData.homepage)}
+              className="flex flex-row justify-center space-x-1 rounded-lg border border-[#EEEEEE] p-4"
+            >
               <Globe />
               <Text className="text-center font-BTN1 text-BTN1 text-medium_gray">
                 웹사이트 바로가기
@@ -278,7 +273,10 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
         </ScrollView>
 
         <View className="fixed bottom-0 flex flex-row space-x-3 border-t border-t-[#EEEEEE] bg-white px-5 py-4">
-          <Pressable onPress={makeCall} className="rounded-lg border border-[#EEEEEE] px-4 py-3">
+          <Pressable
+            onPress={() => makeCall(detailData.phoneNumber)}
+            className="rounded-lg border border-[#EEEEEE] px-4 py-3"
+          >
             <Phone />
           </Pressable>
           <Pressable className="flex flex-1 flex-row items-center justify-center space-x-2 rounded-lg border border-[#EEEEEE] bg-black px-4 py-3">
