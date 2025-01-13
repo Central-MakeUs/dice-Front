@@ -4,6 +4,17 @@ module.exports = {
     // nativewind(tailwind 설정)
     ['nativewind/babel'],
     ['react-native-reanimated/plugin'],
+    [
+      'module:react-native-dotenv',
+      {
+        moduleName: '@env',
+        path: '.env',
+        blacklist: null,
+        whitelist: null,
+        safe: false,
+        allowUndefined: true,
+      },
+    ],
     // 절대경로 설정
     [
       'module-resolver',
