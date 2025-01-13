@@ -1,6 +1,13 @@
 #import "AppDelegate.h"
+#import "RNCConfig.h"
 
 #import <React/RCTBundleURLProvider.h>
+
+// 특정값
+NSString *apiUrl = [RNCConfig envFor:@"API_URL"];
+
+// env전체
+NSDictionary *config = [RNCConfig env];
 
 @implementation AppDelegate
 
