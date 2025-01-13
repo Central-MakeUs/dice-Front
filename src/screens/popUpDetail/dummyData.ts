@@ -4,6 +4,9 @@ export const dummyData = {
     'https://placehold.co/600x400/png',
     'https://placehold.co/600x400/png',
     'https://placehold.co/600x400/png',
+    'https://placehold.co/600x400/png',
+    'https://placehold.co/600x400/png',
+    'https://placehold.co/600x400/png',
   ],
   name: '팝업스토어 제목',
   subtitle: '22평, 개성있는 4개 전시실, 전문 전시공간',
@@ -18,12 +21,6 @@ export const dummyData = {
 
   description:
     '성수동 연무장길 카페거리에 위치한 신규 갤러리 팝업 공간입니다. 갤러리, 브랜드 팝업, 촬영 등 다양한 용도로 사용 가능합니다. 새로 리모델링한 4개의 전시실로 구성되어 있습니다. 블럭 내 누데이크, 아모레퍼시픽 더 아일, 할아버지 공방이 있으며, 동일 건물에 편집샵 튠이 위치하고 있습니다.Room A. 가장 메인이 되는 공간입니다.Room B. 과거 공장으로 사용된 흔적을 보존한 공간입니다.Room C. 설치된 빔프로젝터로 영상을 상영하거나, 일반 전시실로도 사용 가능합니다.Room D. 비정형의 작은 삼각형 공간으로, 스태프 공간으로도 활용할 수 있습니다.* 상시 주차는 불가능하나, 물품 이동 시 주차장 이용은 가능합니다.* 전시실별 느낌이 다양하기에 현장 답사를 추천드립니다.',
-
-  spaceImageList: [
-    'https://placehold.co/600x400/png',
-    'https://placehold.co/600x400/png',
-    'https://placehold.co/600x400/png',
-  ],
 
   location: '서울 성동구 성수이로7가길 3, B1층',
   locationDescription: '성수역 도보 9분',
