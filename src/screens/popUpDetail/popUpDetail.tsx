@@ -147,7 +147,7 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
               {detailData.hashTagList.map((item, index) => (
                 <Text
                   key={index}
-                  className="rounded-full border border-[#EEEEEE] px-2.5 py-1 font-CAP1 text-CAP1 text-light_gray"
+                  className="rounded-full border border-stroke px-2.5 py-1 font-CAP1 text-CAP1 text-light_gray"
                 >
                   # <Text className="text-deep_gray">{item}</Text>
                 </Text>
@@ -166,7 +166,7 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
             </Text>
             <Pressable
               onPress={() => setIsFullDescription(!isFullDescription)}
-              className="relative flex flex-row items-center justify-center rounded-lg border border-[#EEEEEE] p-4"
+              className="relative flex flex-row items-center justify-center rounded-lg border border-stroke p-4"
             >
               <Text className="text-center font-BTN1 text-BTN1 text-medium_gray">
                 {isFullDescription ? '간략히 보기' : '자세히 보기'}
@@ -221,7 +221,7 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
 
             <Pressable
               onPress={() => openWebSite(detailData.homepage)}
-              className="flex flex-row justify-center space-x-1 rounded-lg border border-[#EEEEEE] p-4"
+              className="flex flex-row justify-center space-x-1 rounded-lg border border-stroke p-4"
             >
               <Globe />
               <Text className="text-center font-BTN1 text-BTN1 text-medium_gray">
@@ -247,7 +247,7 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
                   ? setNumOfUsageInformation(detailData.usageInformation.length)
                   : setNumOfUsageInformation(3)
               }
-              className="relative flex flex-row items-center justify-center rounded-lg border border-[#EEEEEE] p-4"
+              className="relative flex flex-row items-center justify-center rounded-lg border border-stroke p-4"
             >
               <Text className="text-center font-BTN1 text-BTN1 text-medium_gray">
                 {numOfUsageInformation === 3 ? '자세히 보기' : '간략히 보기'}
@@ -272,14 +272,14 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
           </View>
         </ScrollView>
 
-        <View className="fixed bottom-0 flex flex-row space-x-3 border-t border-t-[#EEEEEE] bg-white px-5 py-4">
+        <View className="fixed bottom-0 flex flex-row space-x-3 border-t border-t-stroke bg-white px-5 py-4">
           <Pressable
             onPress={() => makeCall(detailData.phoneNumber)}
-            className="rounded-lg border border-[#EEEEEE] px-4 py-3"
+            className="rounded-lg border border-stroke px-4 py-3"
           >
             <Phone />
           </Pressable>
-          <Pressable className="flex flex-1 flex-row items-center justify-center space-x-2 rounded-lg border border-[#EEEEEE] bg-black px-4 py-3">
+          <Pressable className="flex flex-1 flex-row items-center justify-center space-x-2 rounded-lg border border-stroke bg-black px-4 py-3">
             <Message />
             <Text className="font-BTN1 text-BTN1 text-white">채팅하기</Text>
           </Pressable>

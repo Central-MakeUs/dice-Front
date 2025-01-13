@@ -29,7 +29,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ storeData, navigation }) 
 
   return (
     <CustomPressable onPress={toDetail} disabled={false}>
-      <View className="rounded-lg border border-[#EEEEEE] bg-white">
+      <View className="rounded-lg border border-stroke bg-white drop-shadow-basicShadow">
         <Image source={{ uri: storeData.thumbnail }} className="aspect-[2/1] rounded-t-lg" />
 
         <View className="flex flex-row items-start justify-between p-4 pr-0 pt-2">
