@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  dice
+//
+//  Created by 정진혁 on 1/13/25.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include? "tmp.xcconfig"

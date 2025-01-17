@@ -1,8 +1,26 @@
-import React, { useState } from 'react';
-import { Text, Image, FlatList, Pressable, ScrollView } from 'react-native';
-import { View, Linking, Platform, Dimensions, SafeAreaView } from 'react-native';
+import React, { useRef, useState, useEffect } from 'react';
+import { View, Dimensions, SafeAreaView } from 'react-native';
+import {
+  NaverMapView,
+  NaverMapViewRef,
+  NaverMapMarkerOverlay,
+} from '@mj-studio/react-native-naver-map';
+import {
+  Text,
+  Image,
+  FlatList,
+  Pressable,
+  ScrollView,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+} from 'react-native';
 
 import { dummyData } from './dummyData';
+
+import { getGeocode } from '@server/naverMap';
+
+import { makeCall } from '@utils/phoneCall';
+import { openWebSite } from '@utils/website';
 
 import { PopUpDetailScreenProps } from '@type/stack/type';
 
@@ -10,10 +28,14 @@ import LeftArrow from '@assets/leftArrow.svg';
 import Globe from '@assets/popUpDetail/globe.svg';
 import Place from '@assets/popUpDetail/place.svg';
 import Phone from '@assets/popUpDetail/phone.svg';
+import Marker from '@assets/popUpDetail/marker.svg';
 import Message from '@assets/popUpDetail/message.svg';
+import DownArrow from '@assets/popUpDetail/downArrow.svg';
 
 const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
   const width = Dimensions.get('screen').width;
+
+  const mapRef = useRef<NaverMapViewRef>(null);
 
   const toBack = () => {
     navigation.goBack();
@@ -21,19 +43,36 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
 
   const [detailData] = useState(dummyData);
 
+  const [currentIndex, setCurrentIndex] = useState<number>(1);
+
+  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const offsetX = event.nativeEvent.contentOffset.x;
+    const index = Math.floor(offsetX / width);
+    setCurrentIndex(index + 1);
+  };
+
+  // 해당 팝업공간의 위도/경도를 저장하는 state
+  const [geoLocation, setGeoLocation] = useState({
+    latitude: 0,
+    longitude: 0,
+  });
+
+  // 주소를 통해서 위도/경도를 받아오는 메서드
+  const handleGeocode = async () => {
+    const response = await getGeocode(dummyData.location);
+
+    setGeoLocation({
+      latitude: parseFloat(response.addresses[0].y),
+      longitude: parseFloat(response.addresses[0].x),
+    });
+  };
+
+  useEffect(() => {
+    handleGeocode();
+  }, []);
+
   const [isFullDescription, setIsFullDescription] = useState<boolean>(false);
   const [numOfUsageInformation, setNumOfUsageInformation] = useState<number>(3);
-
-  const makeCall = () => {
-    if (dummyData.phoneNumber != '' && dummyData.phoneNumber.length > 0) {
-      if (Platform.OS === 'android') {
-        Linking.openURL(`tel:${dummyData.phoneNumber}`);
-      } else {
-        // iOS에서 전화 걸기
-        Linking.openURL(`tel://${dummyData.phoneNumber}`);
-      }
-    }
-  };
 
   return (
     <View className="flex-1">
@@ -48,24 +87,34 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
           contentContainerStyle={{ paddingBottom: 64, backgroundColor: 'white' }}
           bounces={false}
         >
-          <FlatList
-            className="mb-8"
-            data={detailData.imageList}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({ item }) => (
-              <Image
-                source={{ uri: item }}
-                style={{ width: width, height: width, resizeMode: 'cover' }}
-              />
-            )}
-            horizontal={true}
-            nestedScrollEnabled={true}
-            snapToInterval={width} // 화면 너비만큼 스냅
-            decelerationRate="fast" // 스크롤 속도 줄임
-            showsHorizontalScrollIndicator={false} // 스크롤 바 숨김
-          />
+          <View className="relative">
+            <FlatList
+              data={detailData.imageList}
+              keyExtractor={(item, index) => index.toString()}
+              renderItem={({ item }) => (
+                <Image
+                  source={{ uri: item }}
+                  style={{ width: width, height: width, resizeMode: 'cover' }}
+                />
+              )}
+              bounces={false}
+              horizontal={true}
+              nestedScrollEnabled={true}
+              disableIntervalMomentum={false}
+              scrollEventThrottle={16}
+              snapToInterval={width} // 화면 너비만큼 스냅
+              decelerationRate="fast" // 스크롤 속도 줄임
+              showsHorizontalScrollIndicator={false} // 스크롤 바 숨김
+              onScroll={handleScroll}
+            />
+            <View className="absolute bottom-5 right-5 rounded-full bg-basic px-1.5 py-1">
+              <Text className="font-BTN1 text-BTN1 text-white">
+                {currentIndex} / {detailData.imageList.length}
+              </Text>
+            </View>
+          </View>
 
-          <View className="px-5">
+          <View className="mt-8 px-5">
             <Text className="font-H2 text-H2">{detailData.name}</Text>
             <Text className="mb-4 font-SUB2 text-SUB2 text-medium_gray">{detailData.subtitle}</Text>
             <Text className="font-SUB2 text-SUB2 text-light_gray">
@@ -117,32 +166,15 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
             </Text>
             <Pressable
               onPress={() => setIsFullDescription(!isFullDescription)}
-              className="rounded-lg border border-[#EEEEEE] px-4 py-3"
+              className="relative flex flex-row items-center justify-center rounded-lg border border-[#EEEEEE] p-4"
             >
               <Text className="text-center font-BTN1 text-BTN1 text-medium_gray">
                 {isFullDescription ? '간략히 보기' : '자세히 보기'}
               </Text>
+              <View className={`absolute right-4 ${isFullDescription && 'rotate-180'}`}>
+                <DownArrow />
+              </View>
             </Pressable>
-          </View>
-
-          <View className="my-6 h-2 bg-light_gray" />
-
-          <View className="space-y-4 px-5">
-            <Text className="font-SUB2 text-SUB2">팝업공간 사진</Text>
-            <FlatList
-              data={detailData.spaceImageList}
-              keyExtractor={(item, index) => index.toString()}
-              renderItem={({ item }) => (
-                <Image
-                  source={{ uri: item }}
-                  className="h-[220px] w-[220px] rounded-xl object-cover"
-                  // style={{ width: 220, height: 220, resizeMode: 'cover' }}
-                />
-              )}
-              horizontal={true}
-              nestedScrollEnabled={true}
-              ItemSeparatorComponent={() => <View className="w-3" />}
-            />
           </View>
 
           <View className="my-6 h-2 bg-light_gray" />
@@ -158,8 +190,39 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
                 · {detailData.locationDescription}
               </Text>
             </View>
-            <View className="h-40 w-full rounded-xl bg-black" />
-            <Pressable className="flex flex-row justify-center space-x-1 rounded-lg border border-[#EEEEEE] px-4 py-3">
+            <NaverMapView
+              ref={mapRef}
+              style={{ width: '100%', height: 160, borderRadius: 12, flex: 1 }}
+              mapType="Basic"
+              isShowLocationButton={false}
+              isShowZoomControls={false}
+              isShowScaleBar={false}
+              locale="ko"
+              region={{
+                latitude: geoLocation.latitude,
+                longitude: geoLocation.longitude,
+                latitudeDelta: 0.001,
+                longitudeDelta: -0.00001,
+              }}
+            >
+              <NaverMapMarkerOverlay
+                key={'marker-0'}
+                latitude={geoLocation.latitude}
+                longitude={geoLocation.longitude}
+                anchor={{ x: 0.5, y: 1 }}
+                width={32}
+                height={32}
+              >
+                <View className="flex-1">
+                  <Marker />
+                </View>
+              </NaverMapMarkerOverlay>
+            </NaverMapView>
+
+            <Pressable
+              onPress={() => openWebSite(detailData.homepage)}
+              className="flex flex-row justify-center space-x-1 rounded-lg border border-[#EEEEEE] p-4"
+            >
               <Globe />
               <Text className="text-center font-BTN1 text-BTN1 text-medium_gray">
                 웹사이트 바로가기
@@ -184,11 +247,14 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
                   ? setNumOfUsageInformation(detailData.usageInformation.length)
                   : setNumOfUsageInformation(3)
               }
-              className="rounded-lg border border-[#EEEEEE] px-4 py-3"
+              className="relative flex flex-row items-center justify-center rounded-lg border border-[#EEEEEE] p-4"
             >
               <Text className="text-center font-BTN1 text-BTN1 text-medium_gray">
                 {numOfUsageInformation === 3 ? '자세히 보기' : '간략히 보기'}
               </Text>
+              <View className={`absolute right-4 ${numOfUsageInformation !== 3 && 'rotate-180'}`}>
+                <DownArrow />
+              </View>
             </Pressable>
           </View>
 
@@ -207,7 +273,10 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
         </ScrollView>
 
         <View className="fixed bottom-0 flex flex-row space-x-3 border-t border-t-[#EEEEEE] bg-white px-5 py-4">
-          <Pressable onPress={makeCall} className="rounded-lg border border-[#EEEEEE] px-4 py-3">
+          <Pressable
+            onPress={() => makeCall(detailData.phoneNumber)}
+            className="rounded-lg border border-[#EEEEEE] px-4 py-3"
+          >
             <Phone />
           </Pressable>
           <Pressable className="flex flex-1 flex-row items-center justify-center space-x-2 rounded-lg border border-[#EEEEEE] bg-black px-4 py-3">
