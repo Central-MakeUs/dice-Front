@@ -9,7 +9,7 @@ interface FilterChipProps {
 
 const FilterChip: React.FC<FilterChipProps> = ({ title }) => {
   return (
-    <Pressable className="mr-1.5 flex flex-row space-x-0.5 rounded-2xl border border-[#EEEEEE] bg-[#F4F4F4] p-2 pl-3">
+    <Pressable className="mr-1.5 flex flex-row space-x-0.5 rounded-2xl border border-stroke bg-back_gray p-2 pl-3">
       <Text className="font-BTN1 text-BTN1 text-deep_gray">{title}</Text>
       <DownArrow />
     </Pressable>
