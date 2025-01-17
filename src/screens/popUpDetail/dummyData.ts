@@ -11,7 +11,10 @@ export const dummyData = {
   name: '팝업스토어 제목',
   subtitle: '22평, 개성있는 4개 전시실, 전문 전시공간',
   price: 100000,
+  salePercent: 20,
+
   isLiked: false,
+  likeCount: 20,
 
   type: '갤러리',
   time: '0시 ~ 24시',
