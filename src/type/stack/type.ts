@@ -17,26 +17,33 @@ export type RegisterScreenProps = NativeStackScreenProps<RootStackParamList, 'Re
 
 // 로그인한 유저에 대한 스크린
 export type StackParamList = {
-  MainScreen: undefined;
+  BottomNavigation: undefined;
+
+  PopUpScreen: undefined;
   PopUpDetailScreen: { id: number };
+
+  RecruitScreen: undefined;
 
   // 좋아요 스크린
   LikeScreen: undefined;
 
   // 마이페이지 스크린
   MyPageScreen: undefined;
+
+  // 쪽지 스크린
+  ChatScreen: undefined;
 };
 
-export type MainScreenProps = NativeStackScreenProps<StackParamList, 'MainScreen'>;
-export type PopUpScreenProps = { navigation: MainScreenProps['navigation'] };
-export type RecruitScreenProps = { navigation: MainScreenProps['navigation'] };
+export type PopUpScreenProps = NativeStackScreenProps<StackParamList, 'PopUpScreen'>;
 export type PopUpDetailScreenProps = NativeStackScreenProps<StackParamList, 'PopUpDetailScreen'>;
+export type RecruitScreenProps = NativeStackScreenProps<StackParamList, 'RecruitScreen'>;
 export type LikeScreenProps = NativeStackScreenProps<StackParamList, 'LikeScreen'>;
 export type MyPageScreenProps = NativeStackScreenProps<StackParamList, 'MyPageScreen'>;
+export type ChatScreenProps = NativeStackScreenProps<StackParamList, 'ChatScreen'>;
 
-// 상단 네비게이션
-export type TopNavigationParamList = {
-  LikeScreen: undefined;
+export type BottomNavigationParamList = {
+  PopUpScreen: undefined;
+  RecruitScreen: undefined;
   MyPageScreen: undefined;
 };
 
@@ -49,6 +56,5 @@ export type LoginScreenParamList = {
   HomeScreen: undefined;
 };
 
-export type TopNavigationProp = NativeStackNavigationProp<TopNavigationParamList>;
 export type HomeScreenProp = NativeStackNavigationProp<HomeScreenParamList>;
 export type LoginScreenProp = NativeStackNavigationProp<LoginScreenParamList>;
