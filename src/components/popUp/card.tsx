@@ -3,7 +3,7 @@ import { Text, View, Image, Pressable } from 'react-native';
 
 import CustomPressable from '@components/common/customPressable';
 
-import { PopUpScreenProps } from '@type/stack/type';
+import { LikeScreenProps, PopUpScreenProps } from '@type/stack/type';
 
 import LikeIcon from '@assets/popUp/like.svg';
 import FilledLikeIcon from '@assets/popUp/filled-like.svg';
@@ -22,10 +22,11 @@ interface CardComponentProps {
     isLiked: boolean;
     likeCount: number;
   };
-  navigation: PopUpScreenProps['navigation'];
+  onLike: (id: number) => void;
+  navigation: PopUpScreenProps['navigation'] | LikeScreenProps['navigation'];
 }
 
-const CardComponent: React.FC<CardComponentProps> = ({ storeData, navigation }) => {
+const CardComponent: React.FC<CardComponentProps> = ({ storeData, onLike, navigation }) => {
   const toDetail = () => {
     navigation.navigate('PopUpDetailScreen', { id: storeData.id });
   };
@@ -61,7 +62,10 @@ const CardComponent: React.FC<CardComponentProps> = ({ storeData, navigation }) 
             </View>
           </View>
 
-          <Pressable className="flex flex-col items-center p-3">
+          <Pressable
+            onPress={() => onLike(storeData.id)}
+            className="flex flex-col items-center p-3"
+          >
             {storeData.isLiked ? <FilledLikeIcon /> : <LikeIcon />}
             <Text className="font-CAP2 text-CAP2 text-semiLight_gray">{storeData.likeCount}</Text>
           </Pressable>
