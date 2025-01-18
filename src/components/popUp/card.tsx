@@ -3,9 +3,10 @@ import { Text, View, Image, Pressable } from 'react-native';
 
 import CustomPressable from '@components/common/customPressable';
 
-import { MainScreenProps } from '@type/stack/type';
+import { PopUpScreenProps } from '@type/stack/type';
 
 import LikeIcon from '@assets/popUp/like.svg';
+import FilledLikeIcon from '@assets/popUp/filled-like.svg';
 
 interface CardComponentProps {
   storeData: {
@@ -16,10 +17,12 @@ interface CardComponentProps {
     name: string;
     area: number;
     numOfPeople: number;
+    salePercent: number;
     price: number;
     isLiked: boolean;
+    likeCount: number;
   };
-  navigation: MainScreenProps['navigation'];
+  navigation: PopUpScreenProps['navigation'];
 }
 
 const CardComponent: React.FC<CardComponentProps> = ({ storeData, navigation }) => {
@@ -35,29 +38,32 @@ const CardComponent: React.FC<CardComponentProps> = ({ storeData, navigation }) 
         <View className="flex flex-row items-start justify-between p-4 pr-0 pt-2">
           <View className="space-y-4">
             <View>
-              <Text className="font-CAP1 text-CAP1 leading-6 text-[#AAAAAA]">
+              <Text className="font-CAP1 text-CAP1 leading-6 text-medium_gray">
                 {storeData.cityName} · {storeData.neighborhoodName}
               </Text>
 
-              <Text className="font-SUB2 text-SUB2 leading-6 text-black">{storeData.name}</Text>
+              <Text className="font-SUB1 text-SUB1 leading-6 text-black">{storeData.name}</Text>
 
-              <Text className="font-CAP1 text-CAP1 leading-6 text-medium_gray">
+              <Text className="font-CAP2 text-CAP2 leading-6 text-light_gray">
                 {storeData.area}m² · {storeData.numOfPeople}명 수용 가능
               </Text>
             </View>
 
-            <View>
-              <Text className="font-SUB2 text-SUB2 text-deep_gray">
-                1일 대여{' '}
-                <Text className="font-SUB1 text-SUB1 text-purple">
+            <View className="flex flex-col">
+              <Text className="font-CAP1 text-CAP1 text-light_gray">1일 대여</Text>
+
+              <View className="flex flex-row items-center  space-x-1.5">
+                <Text className="font-SUB2 text-SUB2 text-purple">{storeData.salePercent}%</Text>
+                <Text className="font-SUB1 text-SUB1 text-black">
                   {storeData.price.toLocaleString()}원
                 </Text>
-              </Text>
+              </View>
             </View>
           </View>
 
-          <Pressable className="mt-1.5 p-3">
-            <LikeIcon />
+          <Pressable className="flex flex-col items-center p-3">
+            {storeData.isLiked ? <FilledLikeIcon /> : <LikeIcon />}
+            <Text className="font-CAP2 text-CAP2 text-semiLight_gray">{storeData.likeCount}</Text>
           </Pressable>
         </View>
       </View>

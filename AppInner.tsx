@@ -3,12 +3,16 @@ import { useLoggedInStore } from '@zustands/member/store';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import LikeScreen from '@screens/like/like';
-import MainScreen from '@screens/main/main';
+import ChatScreen from '@screens/chat/chat';
 import LoginScreen from '@screens/login/login';
+import PopUpScreen from '@screens/popUp/popUp';
 import HomeScreen from '@screens/home/homeScreen';
 import MyPageScreen from '@screens/myPage/myPage';
+import RecruitScreen from '@screens/recruit/recruit';
 import RegisterScreen from '@screens/register/register';
 import PopUpDetailScreen from '@screens/popUpDetail/popUpDetail';
+
+import BottomNavigation from '@components/bottomNavigation/bottomNavigation';
 
 import { StackParamList, RootStackParamList } from '@type/stack/type';
 
@@ -19,11 +23,16 @@ function AppInner() {
   const { isLoggedIn } = useLoggedInStore();
 
   return isLoggedIn ? (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="MainScreen" component={MainScreen} />
+    <Stack.Navigator initialRouteName="BottomNavigation" screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="BottomNavigation" component={BottomNavigation} />
+
+      <Stack.Screen name="PopUpScreen" component={PopUpScreen} />
       <Stack.Screen name="PopUpDetailScreen" component={PopUpDetailScreen} />
+      <Stack.Screen name="RecruitScreen" component={RecruitScreen} />
+
       <Stack.Screen name="LikeScreen" component={LikeScreen} />
       <Stack.Screen name="MyPageScreen" component={MyPageScreen} />
+      <Stack.Screen name="ChatScreen" component={ChatScreen} />
     </Stack.Navigator>
   ) : (
     <RootStack.Navigator screenOptions={{ headerShown: false }}>

@@ -24,6 +24,7 @@ import { openWebSite } from '@utils/website';
 
 import { PopUpDetailScreenProps } from '@type/stack/type';
 
+import LikeIcon from '@assets/popUp/like.svg';
 import LeftArrow from '@assets/leftArrow.svg';
 import Globe from '@assets/popUpDetail/globe.svg';
 import Place from '@assets/popUpDetail/place.svg';
@@ -31,6 +32,7 @@ import Phone from '@assets/popUpDetail/phone.svg';
 import Marker from '@assets/popUpDetail/marker.svg';
 import Message from '@assets/popUpDetail/message.svg';
 import DownArrow from '@assets/popUpDetail/downArrow.svg';
+import FilledLikeIcon from '@assets/popUp/filled-like.svg';
 
 const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
   const width = Dimensions.get('screen').width;
@@ -41,7 +43,7 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
     navigation.goBack();
   };
 
-  const [detailData] = useState(dummyData);
+  const [detailData, setDetailData] = useState(dummyData);
 
   const [currentIndex, setCurrentIndex] = useState<number>(1);
 
@@ -73,6 +75,14 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
 
   const [isFullDescription, setIsFullDescription] = useState<boolean>(false);
   const [numOfUsageInformation, setNumOfUsageInformation] = useState<number>(3);
+
+  const handleLike = () => {
+    setDetailData((prev) => ({
+      ...prev,
+      isLiked: !prev.isLiked,
+      likeCount: prev.isLiked ? prev.likeCount - 1 : prev.likeCount + 1,
+    }));
+  };
 
   return (
     <View className="flex-1">
@@ -115,15 +125,33 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
           </View>
 
           <View className="mt-8 px-5">
-            <Text className="font-H2 text-H2">{detailData.name}</Text>
-            <Text className="mb-4 font-SUB2 text-SUB2 text-medium_gray">{detailData.subtitle}</Text>
-            <Text className="font-SUB2 text-SUB2 text-light_gray">
-              1일 대여
-              <Text className="font-SUB1 text-SUB1 text-black">
-                {' '}
-                {detailData.price.toLocaleString()}원
-              </Text>
-            </Text>
+            <View className="flex flex-row items-start justify-between">
+              <View className="flex flex-col">
+                <Text className="font-H2 text-H2 text-black">{detailData.name}</Text>
+                <Text className="mb-4 font-SUB3 text-SUB3 text-semiLight_gray">
+                  {detailData.subtitle}
+                </Text>
+                <View className="flex flex-col">
+                  <Text className="font-CAP1 text-CAP1 text-light_gray">1일 대여</Text>
+
+                  <View className="flex flex-row items-center  space-x-1.5">
+                    <Text className="font-SUB2 text-SUB2 text-purple">
+                      {detailData.salePercent}%
+                    </Text>
+                    <Text className="font-SUB1 text-SUB1 text-black">
+                      {detailData.price.toLocaleString()}원
+                    </Text>
+                  </View>
+                </View>
+              </View>
+
+              <Pressable onPress={handleLike} className="flex flex-col items-center p-3">
+                {detailData.isLiked ? <FilledLikeIcon /> : <LikeIcon />}
+                <Text className="font-CAP2 text-CAP2 text-semiLight_gray">
+                  {detailData.likeCount}
+                </Text>
+              </Pressable>
+            </View>
 
             <View className="my-6 h-[1px] bg-[#EEEEEE]" />
 

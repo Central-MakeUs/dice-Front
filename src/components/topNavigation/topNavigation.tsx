@@ -1,55 +1,59 @@
-import React, { useRef, useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import { View, Pressable } from 'react-native';
 import { useLoggedInStore } from '@zustands/member/store';
-import { View, Text, Animated, Pressable, Dimensions } from 'react-native';
 
-import { TopNavigationProp } from '@type/stack/type';
+import { PopUpScreenProps, RecruitScreenProps } from '@type/stack/type';
 
-import My from '@assets/topNavigation/my.svg';
+import Chat from '@assets/topNavigation/chat.svg';
 import Heart from '@assets/topNavigation/heart.svg';
 import Logo from '@assets/topNavigation/logo-white.svg';
 
 interface TopNavigationProps {
-  type: 'popUp' | 'recruit';
-  handleType: (type: 'popUp' | 'recruit') => void;
+  // type: 'popUp' | 'recruit';
+  // handleType: (type: 'popUp' | 'recruit') => void;
+  navigation: PopUpScreenProps['navigation'] | RecruitScreenProps['navigation'];
 }
 
-const TopNavigation: React.FC<TopNavigationProps> = ({ type, handleType }) => {
+const TopNavigation: React.FC<TopNavigationProps> = ({
+  navigation,
+
+  //  type, handleType
+}) => {
   const { setIsLoggedIn } = useLoggedInStore();
 
-  const navigation = useNavigation<TopNavigationProp>();
+  // const navigation = useNavigation<TopNavigationProp>();
 
-  const width = Dimensions.get('screen').width;
-  const translateX = useRef(new Animated.Value(0)).current;
+  // const width = Dimensions.get('screen').width;
+  // const translateX = useRef(new Animated.Value(0)).current;
 
-  const [switchWidth, setSwitchWidth] = useState<number>(0);
+  // const [switchWidth, setSwitchWidth] = useState<number>(0);
 
-  const handleLayout = (event: any) => {
-    const { width } = event.nativeEvent.layout;
-    setSwitchWidth(width);
-  };
+  // const handleLayout = (event: any) => {
+  //   const { width } = event.nativeEvent.layout;
+  //   setSwitchWidth(width);
+  // };
 
-  const slideAnimation = () => {
-    if (type === 'popUp') {
-      handleType('recruit');
-    } else {
-      handleType('popUp');
-    }
+  // const slideAnimation = () => {
+  //   if (type === 'popUp') {
+  //     handleType('recruit');
+  //   } else {
+  //     handleType('popUp');
+  //   }
 
-    Animated.timing(translateX, {
-      toValue: type === 'recruit' ? 0 : 73,
-      duration: 200,
-      useNativeDriver: true,
-    }).start();
-  };
+  //   Animated.timing(translateX, {
+  //     toValue: type === 'recruit' ? 0 : 73,
+  //     duration: 200,
+  //     useNativeDriver: true,
+  //   }).start();
+  // };
 
   return (
-    <View className="fixed z-10 flex h-[72px] w-full flex-row items-center justify-between bg-black py-3 pl-5">
+    <View className="fixed z-10 flex h-14 w-full flex-row items-center justify-between bg-black py-1 pl-5">
       <Pressable onPress={() => setIsLoggedIn(false)}>
         <Logo />
       </Pressable>
 
-      <Pressable
+      {/* <Pressable
         onPress={() => slideAnimation()}
         onLayout={handleLayout}
         style={{ left: (width - switchWidth) / 2 }}
@@ -69,15 +73,15 @@ const TopNavigation: React.FC<TopNavigationProps> = ({ type, handleType }) => {
         <Text className={`${type === 'recruit' && 'text-white'} p-3 font-BTN1 text-BTN1`}>
           지원공고
         </Text>
-      </Pressable>
+      </Pressable> */}
 
       <View className="flex flex-row">
         <Pressable onPress={() => navigation.navigate('LikeScreen')} className="p-3">
           <Heart />
         </Pressable>
 
-        <Pressable onPress={() => navigation.navigate('MyPageScreen')} className="p-3">
-          <My />
+        <Pressable onPress={() => navigation.navigate('ChatScreen')} className="p-3">
+          <Chat />
         </Pressable>
       </View>
     </View>

@@ -21,31 +21,27 @@ const HeaderComponent: React.FC<HeaderComponentProps> = () =>
           <HeaderBack width={width} className="absolute" />
           <View className="relative z-10 w-full space-y-2.5 ">
             <Text className="font-H1 text-H1 text-[#FFFFFF]">
-              팝업 공간과 지원공고를{'\n'}쉽고 빠르게.
+              저렴한 팝업 공간은{'\n'}쉽게 다이스에서.
             </Text>
 
             <Pressable className="flex flex-row items-center space-x-1 rounded-lg bg-white pb-3.5 pl-[13px] pr-2 pt-[13px]">
               <Magnifier />
-              <Text className="text-medium_gray">원하시는 팝업 위치를 검색해보세요</Text>
+              <Text className="text-medium_gray">찾는 지역이나 지하철역으로 검색해보세요</Text>
             </Pressable>
           </View>
         </View>
 
-        <View className="px-5 pt-8">
-          <Text className="font-H2 text-H2">대여 가능한 팝업 장소</Text>
+        <View className="flex flex-row justify-between px-5">
+          <View className="flex flex-row py-4">
+            <FilterChip title={'지역'} />
+            <FilterChip title={'가격'} />
+            <FilterChip title={'수용인원'} />
+            <FilterChip title={'인기순'} />
+          </View>
 
-          <View className="flex flex-row justify-between">
-            <View className="flex flex-row py-4">
-              <FilterChip title={'지역'} />
-              <FilterChip title={'가격'} />
-              <FilterChip title={'수용인원'} />
-              <FilterChip title={'인기순'} />
-            </View>
-
-            {/* <Pressable onPress={handleLayout}>
+          {/* <Pressable onPress={handleLayout}>
             <Text>레이아웃 변경</Text>
           </Pressable> */}
-          </View>
         </View>
       </View>
     );
