@@ -153,7 +153,7 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
               </Pressable>
             </View>
 
-            <View className="my-6 h-[1px] bg-[#EEEEEE]" />
+            <View className="my-6 h-[1px] bg-stroke" />
 
             <View className="mb-5 flex flex-row space-x-5">
               <View className="flex flex-col justify-center space-y-2">
@@ -183,7 +183,7 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
             </View>
           </View>
 
-          <View className="my-6 h-2 bg-light_gray" />
+          <View className="my-6 h-2 bg-back_gray" />
 
           <View className="space-y-4 px-5">
             <Text className="font-SUB2 text-SUB2">팝업공간 소개</Text>
@@ -205,7 +205,7 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
             </Pressable>
           </View>
 
-          <View className="my-6 h-2 bg-light_gray" />
+          <View className="my-6 h-2 bg-back_gray" />
 
           <View className="space-y-4 px-5">
             <Text className="font-SUB2 text-SUB2">위치 안내</Text>
@@ -258,7 +258,7 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
             </Pressable>
           </View>
 
-          <View className="my-6 h-2 bg-light_gray" />
+          <View className="my-6 h-2 bg-back_gray" />
 
           <View className="space-y-4 px-5">
             <Text className="font-SUB2 text-SUB2">시설 이용 안내</Text>
@@ -286,11 +286,11 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
             </Pressable>
           </View>
 
-          <View className="my-6 h-2 bg-light_gray" />
+          <View className="my-6 h-2 bg-back_gray" />
 
           <View className="space-y-4 px-5">
             <Text className="font-SUB2 text-SUB2">공지사항 안내</Text>
-            <View className="flex flex-col space-y-1 rounded-lg bg-light_gray p-4">
+            <View className="flex flex-col space-y-1 rounded-lg bg-back_gray p-4">
               {detailData.noticeInformation.map((item, index) => (
                 <Text key={index} className="font-BODY1 text-BODY1 text-deep_gray">
                   * {item}
