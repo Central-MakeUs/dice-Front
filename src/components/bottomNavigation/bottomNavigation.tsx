@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import PopUpScreen from '@screens/popUp/popUp';
@@ -26,8 +26,8 @@ const BottomNavigation: React.FC = () => {
           backgroundColor: 'white',
           borderWidth: 1,
           borderColor: '#EEEEEE',
-          height: 96,
-          paddingTop: 16,
+          height: Platform.OS === 'ios' ? 96 : 62,
+          paddingTop: Platform.OS === 'ios' ? 16 : 10,
         },
       }}
     >
