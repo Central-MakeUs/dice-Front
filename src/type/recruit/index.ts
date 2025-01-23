@@ -4,7 +4,7 @@ interface RecruitItem {
   source: string;
   title: string;
   isLiked: boolean;
-  likedNum: number;
+  likeCount: number;
   target: string;
   startDate: string;
   endDate: string;
