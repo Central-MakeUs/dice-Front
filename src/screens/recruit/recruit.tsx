@@ -3,7 +3,7 @@ import { View, SectionList, SafeAreaView } from 'react-native';
 
 import { recruitItemDummy } from './recruitItemDummy';
 
-import ChipContainer from '@components/popUp/chipContainer';
+import ChipContainer from '@components/common/chipContainer';
 import RecruitItemComponent from '@components/recruit/recruitItem';
 import TopNavigation from '@components/topNavigation/topNavigation';
 import RecruitHeaderComponent from '@components/recruit/recruitHeader';
@@ -28,8 +28,7 @@ const RecruitScreen = ({ navigation }: RecruitScreenProps) => {
     );
   };
 
-  // TODO: header, chip container 제작 필요
-
+  const chipList = ['지역', '지원대상', '모집상태'];
   return (
     <View className="flex-1">
       <SafeAreaView className="flex-1 bg-black">
@@ -44,7 +43,7 @@ const RecruitScreen = ({ navigation }: RecruitScreenProps) => {
               </View>
             )}
             renderSectionHeader={({ section }) =>
-              section.title === 'chip' ? <ChipContainer /> : null
+              section.title === 'chip' ? <ChipContainer chipList={chipList} /> : null
             }
             ListHeaderComponent={<RecruitHeaderComponent />}
             ListFooterComponent={<View className="h-16" />}
