@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { View, Text, Button, SafeAreaView } from 'react-native';
 
+import { recruitItemDummy } from './recruitItemDummy';
+
 import CustomModal from '@components/common/customModal';
+import RecruitItemComponent from '@components/recruit/recruitItem';
 import TopNavigation from '@components/topNavigation/topNavigation';
 
+import { RecruitItem } from '@type/recruit';
 import { RecruitScreenProps } from '@type/stack/type';
 
 const RecruitScreen = ({ navigation }: RecruitScreenProps) => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  const [recruitItem] = useState<RecruitItem[]>(recruitItemDummy);
 
   return (
     <View className="flex-1">
@@ -15,6 +20,9 @@ const RecruitScreen = ({ navigation }: RecruitScreenProps) => {
         <TopNavigation navigation={navigation} />
         <View className="flex-1 space-y-4 bg-white">
           <Text>지원공고 스크린</Text>
+          {recruitItem.map((item) => (
+            <RecruitItemComponent recruitItem={item} />
+          ))}
           <Button title="열기" onPress={() => setIsModalVisible(true)}></Button>
 
           <CustomModal
