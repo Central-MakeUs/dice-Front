@@ -29,6 +29,7 @@ const RecruitScreen = ({ navigation }: RecruitScreenProps) => {
   };
 
   const chipList = ['지역', '지원대상', '모집상태'];
+
   return (
     <View className="flex-1">
       <SafeAreaView className="flex-1 bg-black">
@@ -39,7 +40,11 @@ const RecruitScreen = ({ navigation }: RecruitScreenProps) => {
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
               <View className="px-5">
-                <RecruitItemComponent recruitItem={item} onLike={handleLike} />
+                <RecruitItemComponent
+                  recruitItem={item}
+                  onLike={handleLike}
+                  navigation={navigation}
+                />
               </View>
             )}
             renderSectionHeader={({ section }) =>

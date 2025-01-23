@@ -11,6 +11,7 @@ import MyPageScreen from '@screens/myPage/myPage';
 import RecruitScreen from '@screens/recruit/recruit';
 import RegisterScreen from '@screens/register/register';
 import PopUpDetailScreen from '@screens/popUpDetail/popUpDetail';
+import RecruitDetailScreen from '@screens/recruitDetail/recruitDetail';
 
 import BottomNavigation from '@components/bottomNavigation/bottomNavigation';
 
@@ -29,6 +30,7 @@ function AppInner() {
       <Stack.Screen name="PopUpScreen" component={PopUpScreen} />
       <Stack.Screen name="PopUpDetailScreen" component={PopUpDetailScreen} />
       <Stack.Screen name="RecruitScreen" component={RecruitScreen} />
+      <Stack.Screen name="RecruitDetailScreen" component={RecruitDetailScreen} />
 
       <Stack.Screen name="LikeScreen" component={LikeScreen} />
       <Stack.Screen name="MyPageScreen" component={MyPageScreen} />

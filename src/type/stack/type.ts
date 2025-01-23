@@ -23,6 +23,7 @@ export type StackParamList = {
   PopUpDetailScreen: { id: number };
 
   RecruitScreen: undefined;
+  RecruitDetailScreen: { id: number };
 
   // 좋아요 스크린
   LikeScreen: undefined;
@@ -37,6 +38,10 @@ export type StackParamList = {
 export type PopUpScreenProps = NativeStackScreenProps<StackParamList, 'PopUpScreen'>;
 export type PopUpDetailScreenProps = NativeStackScreenProps<StackParamList, 'PopUpDetailScreen'>;
 export type RecruitScreenProps = NativeStackScreenProps<StackParamList, 'RecruitScreen'>;
+export type RecruitDetailScreenProps = NativeStackNavigationProp<
+  StackParamList,
+  'RecruitDetailScreen'
+>;
 export type LikeScreenProps = NativeStackScreenProps<StackParamList, 'LikeScreen'>;
 export type MyPageScreenProps = NativeStackScreenProps<StackParamList, 'MyPageScreen'>;
 export type ChatScreenProps = NativeStackScreenProps<StackParamList, 'ChatScreen'>;
