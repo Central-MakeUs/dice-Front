@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Pressable } from 'react-native';
-import { useLoggedInStore } from '@zustands/member/store';
 
 import { PopUpScreenProps, RecruitScreenProps } from '@type/stack/type';
 
@@ -13,11 +12,9 @@ interface TopNavigationProps {
 }
 
 const TopNavigation: React.FC<TopNavigationProps> = ({ navigation }) => {
-  const { setIsLoggedIn } = useLoggedInStore();
-
   return (
     <View className="fixed z-10 flex h-14 w-full flex-row items-center justify-between bg-black py-1 pl-5">
-      <Pressable onPress={() => setIsLoggedIn(false)}>
+      <Pressable onPress={() => navigation.navigate('ReservationCompleteScreen')}>
         <Logo />
       </Pressable>
 
@@ -26,7 +23,7 @@ const TopNavigation: React.FC<TopNavigationProps> = ({ navigation }) => {
           <Heart />
         </Pressable>
 
-        <Pressable onPress={() => navigation.navigate('ChatScreen')} className="p-3">
+        <Pressable onPress={() => navigation.navigate('ChatBoxScreen')} className="p-3">
           <Chat />
         </Pressable>
       </View>
