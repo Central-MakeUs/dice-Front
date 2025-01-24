@@ -1,5 +1,6 @@
 import React from 'react';
 import AppInner from 'AppInner';
+import { Host } from 'react-native-portalize';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -12,7 +13,9 @@ function App(): React.JSX.Element {
       <NavigationContainer>
         <GestureHandlerRootView>
           {/* <KeyboardAvoid> */}
-          <AppInner />
+          <Host>
+            <AppInner />
+          </Host>
           {/* </KeyboardAvoid> */}
         </GestureHandlerRootView>
       </NavigationContainer>
