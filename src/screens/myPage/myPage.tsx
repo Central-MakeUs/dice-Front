@@ -41,7 +41,7 @@ const MyPageScreen = ({ navigation }: MyPageScreenProps) => {
             <Text className="w-20 text-center font-BTN1 text-BTN1 text-medium_gray">찜한 목록</Text>
           </Pressable>
           <Pressable
-            onPress={() => navigation.navigate('ChatScreen')}
+            onPress={() => navigation.navigate('ChatBoxScreen')}
             className="flex flex-col items-center space-y-2 px-6 py-4"
           >
             <MessageIcon />
