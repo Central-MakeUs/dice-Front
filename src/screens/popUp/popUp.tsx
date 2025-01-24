@@ -6,12 +6,15 @@ import { dummyData } from './dummyData';
 import CardComponent from '@components/popUp/card';
 import HeaderComponent from '@components/popUp/header';
 import ChipContainer from '@components/popUp/chipContainer';
+import FilterContainer from '@components/common/filterContainer';
 import TopNavigation from '@components/topNavigation/topNavigation';
 
 import { PopUpScreenProps } from '@type/stack/type';
 
 const PopUpScreen = ({ navigation }: PopUpScreenProps) => {
   const [popUpData, setPopUpData] = useState(dummyData);
+
+  const [filteringType, setFilteringType] = useState<string>('');
 
   const handleLike = (id: number) => {
     setPopUpData((prevData) =>
@@ -25,6 +28,10 @@ const PopUpScreen = ({ navigation }: PopUpScreenProps) => {
           : item,
       ),
     );
+  };
+
+  const handleFilteringType = (type: string) => {
+    setFilteringType(type);
   };
 
   return (
@@ -46,7 +53,7 @@ const PopUpScreen = ({ navigation }: PopUpScreenProps) => {
             )}
             // sticky한 ChipContainer를 렌더링하기 위한 메서드
             renderSectionHeader={({ section }) =>
-              section.title === 'chip' ? <ChipContainer /> : null
+              section.title === 'chip' ? <ChipContainer openModal={handleFilteringType} /> : null
             }
             // SectionList의 최상단에 렌더링되는 Header 아이템
             ListHeaderComponent={<HeaderComponent />}
@@ -59,6 +66,12 @@ const PopUpScreen = ({ navigation }: PopUpScreenProps) => {
           />
         </View>
       </SafeAreaView>
+
+      <FilterContainer
+        isVisible={filteringType !== ''}
+        type={filteringType}
+        handleType={handleFilteringType}
+      />
     </View>
   );
 };
