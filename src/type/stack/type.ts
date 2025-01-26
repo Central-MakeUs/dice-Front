@@ -38,7 +38,7 @@ export type StackParamList = {
 export type PopUpScreenProps = NativeStackScreenProps<StackParamList, 'PopUpScreen'>;
 export type PopUpDetailScreenProps = NativeStackScreenProps<StackParamList, 'PopUpDetailScreen'>;
 export type RecruitScreenProps = NativeStackScreenProps<StackParamList, 'RecruitScreen'>;
-export type RecruitDetailScreenProps = NativeStackNavigationProp<
+export type RecruitDetailScreenProps = NativeStackScreenProps<
   StackParamList,
   'RecruitDetailScreen'
 >;

@@ -8,8 +8,8 @@ import RecruitItemComponent from '@components/recruit/recruitItem';
 import TopNavigation from '@components/topNavigation/topNavigation';
 import RecruitHeaderComponent from '@components/recruit/recruitHeader';
 
-import { RecruitItem } from '@type/recruit';
 import { RecruitScreenProps } from '@type/stack/type';
+import { RecruitItem } from '@type/recruit/recruit.type';
 
 const RecruitScreen = ({ navigation }: RecruitScreenProps) => {
   const [recruitItem, setRecruitItem] = useState<RecruitItem[]>(recruitItemDummy);

@@ -1,4 +1,4 @@
-import { RecruitItem } from '@type/recruit';
+import { RecruitItem } from '@type/recruit/recruit.type';
 
 export const recruitItemDummy: RecruitItem[] = [
   {

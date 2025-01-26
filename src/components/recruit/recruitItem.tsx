@@ -3,8 +3,8 @@ import { Text, View, Pressable } from 'react-native';
 
 import CustomPressable from '@components/common/customPressable';
 
-import { RecruitItem } from '@type/recruit';
 import { RecruitScreenProps } from '@type/stack/type';
+import { RecruitItem } from '@type/recruit/recruit.type';
 
 import LikeFull from '@assets/recruit/like-full.svg';
 import LikeEmpty from '@assets/recruit/like-empty.svg';
