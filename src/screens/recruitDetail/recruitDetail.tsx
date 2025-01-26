@@ -54,7 +54,7 @@ export default function RecruitDetailScreen({ navigation }: RecruitDetailScreenP
           </Pressable>
         </View>
         <ScrollView
-          contentContainerStyle={{ paddingBottom: 64, backgroundColor: 'white' }}
+          contentContainerStyle={{ flex: 1, paddingBottom: 64, backgroundColor: 'white' }}
           bounces={false}
         >
           <View className="relative">
@@ -84,8 +84,8 @@ export default function RecruitDetailScreen({ navigation }: RecruitDetailScreenP
             </View>
           </View>
           <View className="mt-8 px-5">
-            <View className="flex flex-row items-center justify-between gap-[22px]">
-              <Text className="font-H2 text-H2 leading-H2">{recruitItem.title}</Text>
+            <View className="flex flex-row items-center justify-between">
+              <Text className="mr-[22px] font-H2 text-H2 leading-H2">{recruitItem.title}</Text>
               <View className="flex flex-col items-center">
                 <Pressable onPress={handleLike}>
                   {recruitItem.isLiked ? <LikeFull /> : <LikeEmpty />}
@@ -139,6 +139,11 @@ export default function RecruitDetailScreen({ navigation }: RecruitDetailScreenP
             </Text>
           </View>
         </ScrollView>
+        <View className="fixed bottom-0 flex flex-row space-x-3 border-t border-t-stroke bg-white px-5 py-4">
+          <Pressable className="flex flex-1 flex-row items-center justify-center space-x-2 rounded-lg border border-stroke bg-black px-4 py-3">
+            <Text className="font-BTN1 text-BTN1 text-white">공고 페이지 바로가기</Text>
+          </Pressable>
+        </View>
       </SafeAreaView>
     </View>
   );
