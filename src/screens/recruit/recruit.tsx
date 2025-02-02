@@ -4,6 +4,7 @@ import { View, SectionList, SafeAreaView } from 'react-native';
 import { recruitItemDummy } from './recruitItemDummy';
 
 import ChipContainer from '@components/common/chipContainer';
+import FilterContainer from '@components/common/filterContainer';
 import RecruitItemComponent from '@components/recruit/recruitItem';
 import TopNavigation from '@components/topNavigation/topNavigation';
 import RecruitHeaderComponent from '@components/recruit/recruitHeader';
@@ -13,6 +14,7 @@ import { RecruitItem } from '@type/recruit/recruit.type';
 
 const RecruitScreen = ({ navigation }: RecruitScreenProps) => {
   const [recruitItem, setRecruitItem] = useState<RecruitItem[]>(recruitItemDummy);
+  const [filteringType, setFilteringType] = useState<string>('');
 
   const handleLike = (id: number) => {
     setRecruitItem((prevData) =>
@@ -29,6 +31,10 @@ const RecruitScreen = ({ navigation }: RecruitScreenProps) => {
   };
 
   const chipList = ['지역', '지원대상', '모집상태'];
+
+  const handleFilteringType = (type: string) => {
+    setFilteringType(type);
+  };
 
   return (
     <View className="flex-1">
@@ -48,7 +54,9 @@ const RecruitScreen = ({ navigation }: RecruitScreenProps) => {
               </View>
             )}
             renderSectionHeader={({ section }) =>
-              section.title === 'chip' ? <ChipContainer chipList={chipList} /> : null
+              section.title === 'chip' ? (
+                <ChipContainer chipList={chipList} openModal={handleFilteringType} />
+              ) : null
             }
             ListHeaderComponent={<RecruitHeaderComponent />}
             ListFooterComponent={<View className="h-16" />}
@@ -57,6 +65,12 @@ const RecruitScreen = ({ navigation }: RecruitScreenProps) => {
           />
         </View>
       </SafeAreaView>
+
+      <FilterContainer
+        isVisible={filteringType !== ''}
+        type={filteringType}
+        handleType={handleFilteringType}
+      />
     </View>
   );
 };
