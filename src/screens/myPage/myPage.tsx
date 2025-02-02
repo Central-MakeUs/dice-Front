@@ -8,8 +8,6 @@ import { deleteToken } from '@utils/token';
 
 import { MyPageScreenProps } from '@type/stack/type';
 
-import LikeIcon from '@assets/myPage/like.svg';
-import MessageIcon from '@assets/myPage/message.svg';
 import ProfileImage from '@assets/myPage/defaultProfile.svg';
 
 const MyPageScreen = ({ navigation }: MyPageScreenProps) => {
@@ -32,24 +30,18 @@ const MyPageScreen = ({ navigation }: MyPageScreenProps) => {
           </Text>
         </View>
 
-        <View className="flex flex-row justify-center space-x-3 px-5">
-          <Pressable
-            onPress={() => navigation.navigate('LikeScreen')}
-            className="flex flex-col items-center space-y-2 px-6 py-4"
-          >
-            <LikeIcon />
-            <Text className="w-20 text-center font-BTN1 text-BTN1 text-medium_gray">찜한 목록</Text>
+        <View className="h-2 bg-back_gray" />
+
+        <View className="px-5">
+          <Pressable onPress={() => navigation.navigate('LikeScreen')} className="py-3">
+            <Text className="font-SUB3 text-SUB3 text-medium_gray">찜한 목록</Text>
           </Pressable>
-          <Pressable
-            onPress={() => navigation.navigate('ChatBoxScreen')}
-            className="flex flex-col items-center space-y-2 px-6 py-4"
-          >
-            <MessageIcon />
-            <Text className="w-20 text-center font-BTN1 text-BTN1 text-medium_gray">쪽지함</Text>
+          <Pressable onPress={() => navigation.navigate('ChatBoxScreen')} className="py-3">
+            <Text className="font-SUB3 text-SUB3 text-medium_gray">쪽지함</Text>
           </Pressable>
         </View>
 
-        <View className="h-2 bg-back_gray" />
+        <View className="mx-5 h-[1px] bg-stroke" />
 
         <View className="px-5">
           <Pressable className="py-3">
