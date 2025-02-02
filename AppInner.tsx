@@ -13,6 +13,7 @@ import RegisterScreen from '@screens/register/register';
 import ChatRoomScreen from '@screens/chatRoom/chatRoom';
 import PopUpDetailScreen from '@screens/popUpDetail/popUpDetail';
 import ReservationCompleteScreen from '@screens/reservation/complete';
+import RecruitDetailScreen from '@screens/recruitDetail/recruitDetail';
 
 import BottomNavigation from '@components/bottomNavigation/bottomNavigation';
 
@@ -31,6 +32,7 @@ function AppInner() {
       <Stack.Screen name="PopUpScreen" component={PopUpScreen} />
       <Stack.Screen name="PopUpDetailScreen" component={PopUpDetailScreen} />
       <Stack.Screen name="RecruitScreen" component={RecruitScreen} />
+      <Stack.Screen name="RecruitDetailScreen" component={RecruitDetailScreen} />
 
       <Stack.Screen name="LikeScreen" component={LikeScreen} />
       <Stack.Screen name="MyPageScreen" component={MyPageScreen} />

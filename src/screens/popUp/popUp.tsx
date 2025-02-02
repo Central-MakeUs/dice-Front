@@ -5,8 +5,8 @@ import { dummyData } from './dummyData';
 
 import CardComponent from '@components/popUp/card';
 import HeaderComponent from '@components/popUp/header';
-import ChipContainer from '@components/popUp/chipContainer';
 import FilterContainer from '@components/common/filterContainer';
+import ChipContainer from '@components/common/chipContainer';
 import TopNavigation from '@components/topNavigation/topNavigation';
 
 import { PopUpScreenProps } from '@type/stack/type';
@@ -29,6 +29,7 @@ const PopUpScreen = ({ navigation }: PopUpScreenProps) => {
       ),
     );
   };
+  const chipList = ['지역', '가격', '수용인원', '인기순'];
 
   const handleFilteringType = (type: string) => {
     setFilteringType(type);
@@ -53,7 +54,9 @@ const PopUpScreen = ({ navigation }: PopUpScreenProps) => {
             )}
             // sticky한 ChipContainer를 렌더링하기 위한 메서드
             renderSectionHeader={({ section }) =>
-              section.title === 'chip' ? <ChipContainer openModal={handleFilteringType} /> : null
+              section.title === 'chip' ? (
+                <ChipContainer chipList={chipList} openModal={handleFilteringType} />
+              ) : null
             }
             // SectionList의 최상단에 렌더링되는 Header 아이템
             ListHeaderComponent={<HeaderComponent />}
