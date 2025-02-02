@@ -32,6 +32,8 @@ export type StackParamList = {
 
   // 쪽지함 스크린
   ChatBoxScreen: undefined;
+  // 쪽지방 스크린
+  ChatRoomScreen: { roomId: number };
 
   // 예약완료 스크린
   ReservationCompleteScreen: undefined;
@@ -43,6 +45,7 @@ export type RecruitScreenProps = NativeStackScreenProps<StackParamList, 'Recruit
 export type LikeScreenProps = NativeStackScreenProps<StackParamList, 'LikeScreen'>;
 export type MyPageScreenProps = NativeStackScreenProps<StackParamList, 'MyPageScreen'>;
 export type ChatBoxScreenProps = NativeStackScreenProps<StackParamList, 'ChatBoxScreen'>;
+export type ChatRoomScreenProps = NativeStackScreenProps<StackParamList, 'ChatRoomScreen'>;
 export type ReservationCompleteScreenProps = NativeStackScreenProps<
   StackParamList,
   'ReservationCompleteScreen'
