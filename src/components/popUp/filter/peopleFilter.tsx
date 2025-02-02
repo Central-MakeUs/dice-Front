@@ -7,12 +7,10 @@ import ThumbIcon from '@assets/thumb.svg';
 
 const PeopleFilterComponent: React.FC = () => {
   const numOfPeople = useFilteringStore((state) => state.filtering.numOfPeople);
-  const setMinNumOfPeople = useFilteringStore((state) => state.setMinNumOfPeople);
-  const setMaxNumOfPeople = useFilteringStore((state) => state.setMaxNumOfPeople);
+  const setNumOfPeople = useFilteringStore((state) => state.setNumOfPeople);
 
-  const handleValue = useCallback((low: number, high: number) => {
-    setMinNumOfPeople(low);
-    setMaxNumOfPeople(high);
+  const handleValue = useCallback((num: number) => {
+    setNumOfPeople(num);
   }, []);
 
   return (
@@ -20,7 +18,13 @@ const PeopleFilterComponent: React.FC = () => {
       <Text className="font-CAP1 text-CAP1 text-dark_gray">수용인원</Text>
       <View className="space-y-8">
         <View>
-          <Text>최대 0명 수용 가능</Text>
+          <Text className="font-SUB1 text-SUB1 leading-SUB1">
+            최대{' '}
+            <Text className={`${numOfPeople === 0 ? 'text-semiLight_gray' : 'text-purple'}`}>
+              {numOfPeople}
+            </Text>{' '}
+            명 수용 가능
+          </Text>
         </View>
       </View>
 
@@ -33,10 +37,8 @@ const PeopleFilterComponent: React.FC = () => {
           max={100}
           // 범위가 증가/감소하는 단계
           step={5}
-          // 사용자가 지정한 최솟값
-          low={numOfPeople.minNumOfPeople}
           // 사용자가 지정한 최댓값
-          high={numOfPeople.maxNumOfPeople}
+          high={numOfPeople}
           // 슬라이더의 버튼
           renderThumb={() => <ThumbIcon />}
           // 슬라이더의 줄 (선택 X)
