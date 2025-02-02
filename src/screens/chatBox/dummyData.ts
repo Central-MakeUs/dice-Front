@@ -4,6 +4,8 @@ export type ChatRoom = {
   createdAt: string;
   lastContent: string;
   notReadCount: number;
+  storeImage: string;
+  adminImage: string;
 };
 
 export const dummyData: ChatRoom[] = [
@@ -13,6 +15,8 @@ export const dummyData: ChatRoom[] = [
     createdAt: '오후 06:33',
     lastContent: '마지막 대화내용',
     notReadCount: 0,
+    storeImage: 'https://placehold.co/600x400/png',
+    adminImage: 'https://placehold.co/600x400/png',
   },
   {
     chatRoomId: 3,
@@ -20,6 +24,8 @@ export const dummyData: ChatRoom[] = [
     createdAt: '오후 06:33',
     lastContent: '마지막 대화내용',
     notReadCount: 1,
+    storeImage: 'https://placehold.co/600x400/png',
+    adminImage: 'https://placehold.co/600x400/png',
   },
   {
     chatRoomId: 2,
@@ -27,6 +33,8 @@ export const dummyData: ChatRoom[] = [
     createdAt: '오후 06:33',
     lastContent: '마지막 대화내용',
     notReadCount: 1000,
+    storeImage: 'https://placehold.co/600x400/png',
+    adminImage: 'https://placehold.co/600x400/png',
   },
   {
     chatRoomId: 5,
@@ -34,6 +42,8 @@ export const dummyData: ChatRoom[] = [
     createdAt: '오후 06:33',
     lastContent: '마지막 대화내용',
     notReadCount: 0,
+    storeImage: 'https://placehold.co/600x400/png',
+    adminImage: 'https://placehold.co/600x400/png',
   },
   {
     chatRoomId: 7,
@@ -41,5 +51,7 @@ export const dummyData: ChatRoom[] = [
     createdAt: '오후 06:33',
     lastContent: '마지막 대화내용',
     notReadCount: 0,
+    storeImage: 'https://placehold.co/600x400/png',
+    adminImage: 'https://placehold.co/600x400/png',
   },
 ];
