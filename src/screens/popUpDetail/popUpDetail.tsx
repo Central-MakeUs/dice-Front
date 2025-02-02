@@ -17,6 +17,8 @@ import {
 
 import { dummyData } from './dummyData';
 
+import DateModalComponent from '@components/popUpDetail/dateModal';
+
 import { getGeocode } from '@server/naverMap';
 
 import { makeCall } from '@utils/phoneCall';
@@ -33,6 +35,7 @@ import Marker from '@assets/popUpDetail/marker.svg';
 import Message from '@assets/popUpDetail/message.svg';
 import DownArrow from '@assets/popUpDetail/downArrow.svg';
 import FilledLikeIcon from '@assets/popUp/filled-like.svg';
+import Reservation from '@assets/popUpDetail/reservation.svg';
 
 const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
   const width = Dimensions.get('screen').width;
@@ -84,6 +87,8 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
     }));
   };
 
+  const [isReservationModalVisible, setIsReservationModalVisible] = useState<boolean>(false);
+
   return (
     <View className="flex-1">
       <SafeAreaView className="flex-1 bg-black">
@@ -127,25 +132,25 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
           <View className="mt-8 px-5">
             <View className="flex flex-row items-start justify-between">
               <View className="flex flex-col">
-                <Text className="font-H2 text-H2 text-black">{detailData.name}</Text>
-                <Text className="mb-4 font-SUB3 text-SUB3 text-semiLight_gray">
+                <Text className="font-H2 text-H2 leading-H2 text-black">{detailData.name}</Text>
+                <Text className="mb-4 font-SUB3 text-SUB3 leading-SUB3 text-semiLight_gray">
                   {detailData.subtitle}
                 </Text>
                 <View className="flex flex-col">
-                  <Text className="font-CAP1 text-CAP1 text-light_gray">1일 대여</Text>
+                  <Text className="font-CAP1 text-CAP1 leading-CAP1 text-light_gray">1일 대여</Text>
 
-                  <View className="flex flex-row items-center  space-x-1.5">
-                    <Text className="font-SUB2 text-SUB2 text-purple">
+                  <View className="flex flex-row items-center space-x-1.5">
+                    <Text className="font-SUB2 text-SUB2 leading-SUB2 text-purple">
                       {detailData.salePercent}%
                     </Text>
-                    <Text className="font-SUB1 text-SUB1 text-black">
+                    <Text className="font-SUB1 text-SUB1 leading-SUB1 text-black">
                       {detailData.price.toLocaleString()}원
                     </Text>
                   </View>
                 </View>
               </View>
 
-              <Pressable onPress={handleLike} className="flex flex-col items-center p-3">
+              <Pressable onPress={handleLike} className="flex flex-col items-center">
                 {detailData.isLiked ? <FilledLikeIcon /> : <LikeIcon />}
                 <Text className="font-CAP2 text-CAP2 text-semiLight_gray">
                   {detailData.likeCount}
@@ -300,20 +305,33 @@ const PopUpDetailScreen = ({ navigation }: PopUpDetailScreenProps) => {
           </View>
         </ScrollView>
 
-        <View className="fixed bottom-0 flex flex-row space-x-3 border-t border-t-stroke bg-white px-5 py-4">
+        <View className="fixed bottom-0 flex flex-row space-x-2 border-t border-t-stroke bg-white px-5 py-4">
           <Pressable
             onPress={() => makeCall(detailData.phoneNumber)}
-            className="rounded-lg border border-stroke px-4 py-3"
+            className="rounded-lg border border-stroke p-3.5"
           >
             <Phone />
           </Pressable>
-          <Pressable className="flex flex-1 flex-row items-center justify-center space-x-2 rounded-lg border border-stroke bg-black px-4 py-3">
+
+          <Pressable onPress={() => {}} className="rounded-lg border border-stroke p-3.5">
             <Message />
-            <Text className="font-BTN1 text-BTN1 text-white">채팅하기</Text>
+          </Pressable>
+
+          <Pressable
+            onPress={() => setIsReservationModalVisible(true)}
+            className="flex flex-1 flex-row items-center justify-center space-x-2 rounded-lg border border-stroke bg-black px-4 py-3.5"
+          >
+            <Reservation />
+            <Text className="font-BTN1 text-BTN1 leading-BTN1 text-white">공간 예약하기</Text>
           </Pressable>
         </View>
       </SafeAreaView>
       <SafeAreaView className="bg-white" />
+
+      <DateModalComponent
+        isVisible={isReservationModalVisible}
+        closeModal={() => setIsReservationModalVisible(false)}
+      />
     </View>
   );
 };
