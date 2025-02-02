@@ -3,14 +3,16 @@ import { useLoggedInStore } from '@zustands/member/store';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import LikeScreen from '@screens/like/like';
-import ChatScreen from '@screens/chat/chat';
 import LoginScreen from '@screens/login/login';
 import PopUpScreen from '@screens/popUp/popUp';
 import HomeScreen from '@screens/home/homeScreen';
 import MyPageScreen from '@screens/myPage/myPage';
+import ChatBoxScreen from '@screens/chatBox/chatBox';
 import RecruitScreen from '@screens/recruit/recruit';
 import RegisterScreen from '@screens/register/register';
+import ChatRoomScreen from '@screens/chatRoom/chatRoom';
 import PopUpDetailScreen from '@screens/popUpDetail/popUpDetail';
+import ReservationCompleteScreen from '@screens/reservation/complete';
 import RecruitDetailScreen from '@screens/recruitDetail/recruitDetail';
 
 import BottomNavigation from '@components/bottomNavigation/bottomNavigation';
@@ -34,7 +36,11 @@ function AppInner() {
 
       <Stack.Screen name="LikeScreen" component={LikeScreen} />
       <Stack.Screen name="MyPageScreen" component={MyPageScreen} />
-      <Stack.Screen name="ChatScreen" component={ChatScreen} />
+
+      <Stack.Screen name="ChatRoomScreen" component={ChatRoomScreen} />
+      <Stack.Screen name="ChatBoxScreen" component={ChatBoxScreen} />
+
+      <Stack.Screen name="ReservationCompleteScreen" component={ReservationCompleteScreen} />
     </Stack.Navigator>
   ) : (
     <RootStack.Navigator screenOptions={{ headerShown: false }}>

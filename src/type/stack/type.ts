@@ -17,7 +17,7 @@ export type RegisterScreenProps = NativeStackScreenProps<RootStackParamList, 'Re
 
 // 로그인한 유저에 대한 스크린
 export type StackParamList = {
-  BottomNavigation: undefined;
+  BottomNavigation: { screen: keyof BottomNavigationParamList } | undefined;
 
   PopUpScreen: undefined;
   PopUpDetailScreen: { id: number };
@@ -31,8 +31,13 @@ export type StackParamList = {
   // 마이페이지 스크린
   MyPageScreen: undefined;
 
-  // 쪽지 스크린
-  ChatScreen: undefined;
+  // 쪽지함 스크린
+  ChatBoxScreen: undefined;
+  // 쪽지방 스크린
+  ChatRoomScreen: { roomId: number };
+
+  // 예약완료 스크린
+  ReservationCompleteScreen: undefined;
 };
 
 export type PopUpScreenProps = NativeStackScreenProps<StackParamList, 'PopUpScreen'>;
@@ -44,7 +49,12 @@ export type RecruitDetailScreenProps = NativeStackScreenProps<
 >;
 export type LikeScreenProps = NativeStackScreenProps<StackParamList, 'LikeScreen'>;
 export type MyPageScreenProps = NativeStackScreenProps<StackParamList, 'MyPageScreen'>;
-export type ChatScreenProps = NativeStackScreenProps<StackParamList, 'ChatScreen'>;
+export type ChatBoxScreenProps = NativeStackScreenProps<StackParamList, 'ChatBoxScreen'>;
+export type ChatRoomScreenProps = NativeStackScreenProps<StackParamList, 'ChatRoomScreen'>;
+export type ReservationCompleteScreenProps = NativeStackScreenProps<
+  StackParamList,
+  'ReservationCompleteScreen'
+>;
 
 export type BottomNavigationParamList = {
   PopUpScreen: undefined;
