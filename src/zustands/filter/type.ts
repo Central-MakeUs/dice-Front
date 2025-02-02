@@ -7,9 +7,6 @@ export type Filtering = {
     minPrice: number;
     maxPrice: number;
   };
-  numOfPeople: {
-    minNumOfPeople: number;
-    maxNumOfPeople: number;
-  };
+  numOfPeople: number;
   sortType: string;
 };

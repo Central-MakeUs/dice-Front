@@ -8,8 +8,7 @@ export const useFilteringStore = create<{
   setRegion: (region: string, detail: string[]) => void;
   setMinPrice: (minPrice: number) => void;
   setMaxPrice: (maxPrice: number) => void;
-  setMinNumOfPeople: (minNum: number) => void;
-  setMaxNumOfPeople: (maxNum: number) => void;
+  setNumOfPeople: (num: number) => void;
   setSortType: (sortType: string) => void;
   clearFiltering: () => void;
 }>((set) => ({
@@ -22,10 +21,7 @@ export const useFilteringStore = create<{
       minPrice: 0,
       maxPrice: 300000,
     },
-    numOfPeople: {
-      minNumOfPeople: 0,
-      maxNumOfPeople: 100,
-    },
+    numOfPeople: 0,
     sortType: '',
   },
   setRegion: (region, detail) =>
@@ -49,20 +45,14 @@ export const useFilteringStore = create<{
         price: { ...state.filtering.price, maxPrice },
       },
     })),
-  setMinNumOfPeople: (minNum) =>
+  setNumOfPeople: (num) =>
     set((state) => ({
       filtering: {
         ...state.filtering,
-        numOfPeople: { ...state.filtering.numOfPeople, minNumOfPeople: minNum },
+        numOfPeople: num,
       },
     })),
-  setMaxNumOfPeople: (maxNum) =>
-    set((state) => ({
-      filtering: {
-        ...state.filtering,
-        numOfPeople: { ...state.filtering.numOfPeople, maxNumOfPeople: maxNum },
-      },
-    })),
+
   setSortType: (sortType) =>
     set((state) => ({
       filtering: {
@@ -81,10 +71,7 @@ export const useFilteringStore = create<{
           minPrice: 0,
           maxPrice: 300000,
         },
-        numOfPeople: {
-          minNumOfPeople: 0,
-          maxNumOfPeople: 100,
-        },
+        numOfPeople: 0,
         sortType: '',
       },
     }),
