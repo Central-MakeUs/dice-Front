@@ -60,7 +60,6 @@ const CalendarListComponent: React.FC<CalendarListComponentProps> = ({
       futureScrollRange={12}
       onDayPress={handleDate}
       markingType="period"
-      theme={{}}
       dayComponent={({ date, state }) => {
         const isPast = date && dayjs(date.dateString).isBefore(today, 'day');
         const isStartDate = date?.dateString === startDate;
@@ -80,7 +79,7 @@ const CalendarListComponent: React.FC<CalendarListComponentProps> = ({
             {date?.dateString === endDate && <FilledPolygon className="absolute left-1 top-0" />}
 
             <Text
-              className={`w-10 flex-1 text-center font-CAP1 text-CAP1 leading-CAP1 ${
+              className={`w-10 text-center font-CAP1 text-CAP1 leading-CAP1 ${
                 isEndDate
                   ? 'text-white'
                   : isStartDate
