@@ -5,8 +5,8 @@ import { dummyData } from './dummyData';
 
 import CardComponent from '@components/popUp/card';
 import HeaderComponent from '@components/popUp/header';
-import FilterContainer from '@components/common/filterContainer';
 import ChipContainer from '@components/common/chipContainer';
+import FilterContainer from '@components/common/filterContainer';
 import TopNavigation from '@components/topNavigation/topNavigation';
 
 import { PopUpScreenProps } from '@type/stack/type';
